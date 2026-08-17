@@ -1,0 +1,31 @@
+/* NeoRPA 문서 사이트 테마 — BrandColor(보라 #8346d5) + Pretendard 폰트 스택 */
+
+:root {
+  --md-primary-fg-color:        #8346d5;
+  --md-primary-fg-color--light: #b590e6;
+  --md-primary-fg-color--dark:  #6a2fb5;
+  --md-accent-fg-color:         #8346d5;
+
+  /* Pretendard 우선, 없으면 시스템 한글 폰트로 폴백(CDN 미사용) */
+  --md-text-font-family: Pretendard, "Pretendard Variable", -apple-system,
+    "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif;
+  --md-code-font-family: "Cascadia Code", "D2Coding", Consolas, ui-monospace, monospace;
+}
+
+/* font: false 일 때 Material 이 참조하는 실제 변수 */
+:root {
+  --md-text-font: "";
+  --md-code-font: "";
+}
+body, input, .md-typeset {
+  font-family: var(--md-text-font-family);
+}
+code, kbd, pre, .md-typeset code {
+  font-family: var(--md-code-font-family);
+}
+
+/* 표·코드 가독성 소소한 조정 */
+.md-typeset table:not([class]) th {
+  background: var(--md-primary-fg-color--light);
+  color: #1a1030;
+}

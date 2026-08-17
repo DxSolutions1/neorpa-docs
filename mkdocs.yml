@@ -1,0 +1,83 @@
+site_name: NeoRPA 문서
+site_description: NeoRPA(주식회사 디엑스솔루션즈) 사용자 문서
+site_url: https://dxsolutions1.github.io/neorpa-docs/
+docs_dir: docs
+use_directory_urls: true
+
+theme:
+  name: material
+  language: ko
+  font: false          # Google Fonts 대신 시스템/Pretendard 폰트 스택(extra.css)
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/weather-night
+        name: 다크 모드로 전환
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/weather-sunny
+        name: 라이트 모드로 전환
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+
+nav:
+  - 홈: index.md
+  - 사용자 가이드:
+      - 개요: user/index.md
+      - 시작하기: user/getting-started.md
+      - 기본 개념: user/concepts.md
+      - 액티비티 사용법:
+          - 개요: user/activities/index.md
+          - Chrome (전용): user/activities/chrome.md
+          - Chrome (일반): user/activities/chrome-native.md
+          - Control (데스크톱 UI · 파일 · 프로세스): user/activities/control.md
+          - Statements (흐름 제어): user/activities/statements.md
+          - Excel WorkBook: user/activities/excel-workbook.md
+          - Excel Scope: user/activities/excel-scope.md
+          - DataTable: user/activities/datatable.md
+          - Mail: user/activities/mail.md
+          - System (구조 · 프로세스): user/activities/system.md
+          - DB: user/activities/db.md
+          - OutLook: user/activities/outlook.md
+      - 원격 데스크톱 자동화: user/remote-desktop.md
+      - 문제 해결: user/troubleshooting.md
+  - 용어집: glossary.md
