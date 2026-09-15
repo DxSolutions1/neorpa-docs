@@ -4,11 +4,12 @@ NeoRPA로 자동화를 만드는 분을 위한 안내입니다.
 
 ## 이 섹션에서 다루는 것
 
-- [시작하기](getting-started.md) — 설치, 첫 실행, 첫 워크플로
-- [기본 개념](concepts.md) — 프로젝트·워크플로, 셀렉터, 실행/디버그
+- [시작하기](getting-started.md) — 설치, 시작 화면과 프로젝트, 첫 워크플로, 명령줄
+- [기본 개념](concepts.md) — 프로젝트·워크플로, 셀렉터와 스코프, 실행/디버그, 로그 수준
 - [액티비티 사용법](activities/index.md) — 카테고리별 액티비티와 예제
 - [원격 데스크톱 자동화](remote-desktop.md) — mstsc 원격 데스크톱 안의 요소 자동화
 - [문제 해결](troubleshooting.md) — 자주 겪는 문제와 해결
+- [변경 이력](../changelog.md) — 버전별 새 기능과 문서 변경
 
 ## NeoRPA는 무엇을 하나요
 

@@ -81,3 +81,4 @@ nav:
       - 원격 데스크톱 자동화: user/remote-desktop.md
       - 문제 해결: user/troubleshooting.md
   - 용어집: glossary.md
+  - 변경 이력: changelog.md
