@@ -1,5 +1,5 @@
-<!-- 이 파일은 scripts/gen_activity_stubs.py 로 자동 생성됩니다.
-     직접 편집하지 말고 website/data/activities.yaml 을 고친 뒤 스크립트를 다시 실행하세요. -->
+<!-- 이 파일은 scripts/gen_activities.py 로 자동 생성됩니다.
+     직접 편집하지 말고 data/activities.yaml 을 고친 뒤 `python scripts/gen_activities.py --write` 를 다시 실행하세요. -->
 
 
 # Chrome (전용)
@@ -18,7 +18,7 @@
 |------|------|------|------|
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 | 브라우저 타입 <small>`BrowserType`</small> | 입력 | `string` | 동작에 사용할 브라우저 종류(Chrome, Edge 등). |
-| URL <small>`Url`</small> | 입력 | `string` | 열거나 이동할 웹 페이지 주소. |
+| `Url` | 입력 | `string` | 열거나 이동할 웹 페이지 주소. |
 | 작업 전 타임아웃 <small>`BeforeTimeout`</small> | 입력 | `int` | 동작을 시작하기 전에 대기할 시간(밀리초). |
 
 ## 브라우저 열기  <small>`OpenBrowser`</small>
@@ -31,7 +31,7 @@ URL을 브라우저로 열고, 그 브라우저를 대상으로 하는 자식 �
 |------|------|------|------|
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 | 브라우저 타입 <small>`BrowserType`</small> | 입력 | `string` | 동작에 사용할 브라우저 종류(Chrome, Edge 등). |
-| URL <small>`Url`</small> | 입력 | `string` | 열거나 이동할 웹 페이지 주소. |
+| `Url` | 입력 | `string` | 열거나 이동할 웹 페이지 주소. |
 | 작업 전 타임아웃 <small>`BeforeTimeout`</small> | 입력 | `int` | 동작을 시작하기 전에 대기할 시간(밀리초). |
 | 애플리케이션 창 <small>`ApplicationWindow`</small> | 출력 | `Process` | 연결하거나 새로 연 애플리케이션 창(프로세스)을 담는 변수. |
 
@@ -48,7 +48,6 @@ URL을 브라우저로 열고, 그 브라우저를 대상으로 하는 자식 �
 | 타임아웃 <small>`Timeout`</small> | 입력 | `int` | 대상을 찾기까지 대기할 최대 시간(밀리초). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 | 애플리케이션 창 <small>`ApplicationWindow`</small> | 출력 | `Process` | 연결하거나 새로 연 애플리케이션 창(프로세스)을 담는 변수. |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
 
 ## 연결 (크롬)  <small>`AttachChrome`</small>
 
@@ -84,8 +83,6 @@ URL을 브라우저로 열고, 그 브라우저를 대상으로 하는 자식 �
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 | 로딩 상태 <small>`ReadyState`</small> | 입력 | `string` | 동작을 실행하기 전에 기다릴 페이지 로딩 상태(예: INTERACTIVE, COMPLETE). |
 | 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
-| XPath <small>`Xpath`</small> | 입력 | `string` | 대상 요소를 찾는 데 사용하는 XPath 식. |
 
 ## 마우스 오버 (크롬)  <small>`HoverChrome`</small>
 
@@ -103,8 +100,6 @@ URL을 브라우저로 열고, 그 브라우저를 대상으로 하는 자식 �
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 | 로딩 상태 <small>`ReadyState`</small> | 입력 | `string` | 동작을 실행하기 전에 기다릴 페이지 로딩 상태(예: INTERACTIVE, COMPLETE). |
 | 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
-| XPath <small>`Xpath`</small> | 입력 | `string` | 대상 요소를 찾는 데 사용하는 XPath 식. |
 
 ## 텍스트 입력 (크롬)  <small>`TypeIntoChrome`</small>
 
@@ -125,8 +120,6 @@ URL을 브라우저로 열고, 그 브라우저를 대상으로 하는 자식 �
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 | 로딩 상태 <small>`ReadyState`</small> | 입력 | `string` | 동작을 실행하기 전에 기다릴 페이지 로딩 상태(예: INTERACTIVE, COMPLETE). |
 | 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
-| XPath <small>`Xpath`</small> | 입력 | `string` | 대상 요소를 찾는 데 사용하는 XPath 식. |
 
 ## 텍스트 가져오기 (크롬)  <small>`GetTextChrome`</small>
 
@@ -144,8 +137,6 @@ URL을 브라우저로 열고, 그 브라우저를 대상으로 하는 자식 �
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 | 로딩 상태 <small>`ReadyState`</small> | 입력 | `string` | 동작을 실행하기 전에 기다릴 페이지 로딩 상태(예: INTERACTIVE, COMPLETE). |
 | 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
-| XPath <small>`Xpath`</small> | 입력 | `string` | 대상 요소를 찾는 데 사용하는 XPath 식. |
 
 ## 속성 가져오기 (크롬)  <small>`GetAttributeChrome`</small>
 
@@ -164,8 +155,6 @@ URL을 브라우저로 열고, 그 브라우저를 대상으로 하는 자식 �
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 | 로딩 상태 <small>`ReadyState`</small> | 입력 | `string` | 동작을 실행하기 전에 기다릴 페이지 로딩 상태(예: INTERACTIVE, COMPLETE). |
 | 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
-| XPath <small>`Xpath`</small> | 입력 | `string` | 대상 요소를 찾는 데 사용하는 XPath 식. |
 
 ## 요소 존재 확인 (크롬)  <small>`ElementExistsChrome`</small>
 
@@ -183,6 +172,3 @@ URL을 브라우저로 열고, 그 브라우저를 대상으로 하는 자식 �
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 | 로딩 상태 <small>`ReadyState`</small> | 입력 | `string` | 동작을 실행하기 전에 기다릴 페이지 로딩 상태(예: INTERACTIVE, COMPLETE). |
 | 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
-| XPath <small>`Xpath`</small> | 입력 | `string` | 대상 요소를 찾는 데 사용하는 XPath 식. |
-

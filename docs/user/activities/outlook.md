@@ -1,5 +1,5 @@
-<!-- 이 파일은 scripts/gen_activity_stubs.py 로 자동 생성됩니다.
-     직접 편집하지 말고 website/data/activities.yaml 을 고친 뒤 스크립트를 다시 실행하세요. -->
+<!-- 이 파일은 scripts/gen_activities.py 로 자동 생성됩니다.
+     직접 편집하지 말고 data/activities.yaml 을 고친 뒤 `python scripts/gen_activities.py --write` 를 다시 실행하세요. -->
 
 
 # OutLook
@@ -54,4 +54,3 @@
 | `MailMessage` | 입력 | `MailMessage` | 삭제할 대상 메일 메시지. |
 | `PermanentlyDelete` | 입력 | `bool` | 메일을 휴지통을 거치지 않고 영구 삭제할지 여부. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
-

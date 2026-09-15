@@ -1,5 +1,5 @@
-<!-- 이 파일은 scripts/gen_activity_stubs.py 로 자동 생성됩니다.
-     직접 편집하지 말고 website/data/activities.yaml 을 고친 뒤 스크립트를 다시 실행하세요. -->
+<!-- 이 파일은 scripts/gen_activities.py 로 자동 생성됩니다.
+     직접 편집하지 말고 data/activities.yaml 을 고친 뒤 `python scripts/gen_activities.py --write` 를 다시 실행하세요. -->
 
 
 # DataTable
@@ -7,6 +7,18 @@
 System.Data.DataTable을 만들고 병합·조인·필터·정렬·행·열을 조작합니다.
 
 > 이 카테고리에는 15개의 액티비티가 있습니다. 각 액티비티의 **속성** 표는 소스에서 자동 추출되며(상속 포함), 표시명·설명은 리소스/설명 데이터에서 해석됩니다.
+
+## 데이터 테이블 병합  <small>`MergeDataTable`</small>
+
+두 DataTable을 하나로 병합합니다.
+
+**속성**
+
+| 속성 | 방향 | 타입 | 설명 |
+|------|------|------|------|
+| Target <small>`TargetTable`</small> | 입출력 | `DataTable` | 병합 결과를 받을 대상 DataTable. |
+| Source <small>`SourceTable`</small> | 입력 | `DataTable` | 병합할 원본 DataTable. |
+| 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 데이터 테이블 생성  <small>`BuildDataTable`</small>
 
@@ -18,18 +30,6 @@ System.Data.DataTable을 만들고 병합·조인·필터·정렬·행·열을 �
 |------|------|------|------|
 | `dataTable` | 출력 | `DataTable` | 작업 대상이 되는 DataTable. |
 | `tableXml` | 입력 | `string` | 테이블의 구조와 데이터를 정의한 XML. |
-| 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
-
-## 데이터 테이블 병합  <small>`MergeDataTable`</small>
-
-두 DataTable을 하나로 병합합니다.
-
-**속성**
-
-| 속성 | 방향 | 타입 | 설명 |
-|------|------|------|------|
-| `TargetTable` | 입출력 | `DataTable` | 병합 결과를 받을 대상 DataTable. |
-| `SourceTable` | 입력 | `DataTable` | 병합할 원본 DataTable. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 데이터 테이블 열 추가  <small>`AddColumnDataTable`</small>
@@ -45,7 +45,6 @@ DataTable에 새 열을 추가합니다.
 | `DefaultValue` | 입력 | `string` | 새 열에 채울 기본값. |
 | `MaxLength` | 입력 | `Int32` | 이 문자열 열이 가질 수 있는 최대 길이. |
 | `Unique` | 설정 | `bool` | 이 열의 값이 중복 없이 고유해야 하는지 여부. |
-| `TypeArgument` | 설정 | `Type` | 값의 데이터 형식(Type). |
 | `Column` | 입력 | `DataColumn` | 대상이 되는 DataTable 열(DataColumn 개체). |
 | `DataTable` | 입력 | `DataTable` | 작업 대상이 되는 DataTable. |
 | `ColumnName` | 입력 | `string` | 대상 열의 이름. |
@@ -64,7 +63,7 @@ DataTable을 지정한 열 기준으로 정렬합니다.
 | `ColumnName` | 입력 | `string` | 대상 열의 이름. |
 | `Order` | 입력 | `string` | 정렬 순서(오름차순/내림차순). |
 | `DataTable` | 입력 | `DataTable` | 작업 대상이 되는 DataTable. |
-| `DataTable2` | 출력 | `DataTable` | 조인/정렬할 두 번째 DataTable. |
+| DataTable <small>`DataTable2`</small> | 출력 | `DataTable` | 조인/정렬할 두 번째 DataTable. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 데이터 테이블 초기화  <small>`ClearDataTable`</small>
@@ -209,4 +208,3 @@ DataTable을 CSV 파일로 저장합니다.
 | `Filters` | 설정 | `List<FilterOperationArgument>` | 적용할 행 필터 조건 목록. |
 | `SelectColumns` | 설정 | `List<InArgument<object>>` | 결과에 포함할 열 목록. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
-

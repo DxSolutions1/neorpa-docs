@@ -1,12 +1,12 @@
-<!-- 이 파일은 scripts/gen_activity_stubs.py 로 자동 생성됩니다.
-     직접 편집하지 말고 website/data/activities.yaml 을 고친 뒤 스크립트를 다시 실행하세요. -->
+<!-- 이 파일은 scripts/gen_activities.py 로 자동 생성됩니다.
+     직접 편집하지 말고 data/activities.yaml 을 고친 뒤 `python scripts/gen_activities.py --write` 를 다시 실행하세요. -->
 
 
 # System (구조 · 프로세스)
 
 플로차트·스테이트머신 등 WF 구조와 프로세스·로그 유틸.
 
-> 이 카테고리에는 11개의 액티비티가 있습니다. 각 액티비티의 **속성** 표는 소스에서 자동 추출되며(상속 포함), 표시명·설명은 리소스/설명 데이터에서 해석됩니다.
+> 이 카테고리에는 12개의 액티비티가 있습니다. 각 액티비티의 **속성** 표는 소스에서 자동 추출되며(상속 포함), 표시명·설명은 리소스/설명 데이터에서 해석됩니다.
 
 ## Flowchart  <small>`Flowchart`</small>
 
@@ -17,7 +17,7 @@
 !!! note
     표준 WF 액티비티이거나 별도 인자가 없습니다.
 
-## Flow Switch  <small>`FlowSwitch`</small>
+## FlowSwitch  <small>`FlowSwitch<T>`</small>
 
 플로차트에서 식의 값에 따라 여러 갈래로 분기합니다.
 
@@ -26,7 +26,7 @@
 !!! note
     표준 WF 액티비티이거나 별도 인자가 없습니다.
 
-## Flow Decision  <small>`FlowDecision`</small>
+## FlowDecision  <small>`FlowDecision`</small>
 
 플로차트에서 조건에 따라 참/거짓 두 갈래로 분기합니다.
 
@@ -35,7 +35,7 @@
 !!! note
     표준 WF 액티비티이거나 별도 인자가 없습니다.
 
-## Invoke Method  <small>`InvokeMethod`</small>
+## InvokeMethod  <small>`InvokeMethod`</small>
 
 지정한 객체나 형식의 메서드를 호출합니다.
 
@@ -53,7 +53,7 @@
 !!! note
     표준 WF 액티비티이거나 별도 인자가 없습니다.
 
-## Final State  <small>`FinalState`</small>
+## FinalState  <small>`FinalState`</small>
 
 스테이트 머신의 종료 상태를 정의합니다.
 
@@ -62,7 +62,7 @@
 !!! note
     표준 WF 액티비티이거나 별도 인자가 없습니다.
 
-## State Machine  <small>`StateMachine`</small>
+## StateMachine  <small>`StateMachine`</small>
 
 상태와 전이로 흐름을 구성하는 스테이트 머신 컨테이너입니다.
 
@@ -80,7 +80,7 @@
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
 | `Message` | 입력 | `string` | 기록할 로그 메시지 내용. |
-| `LogType` | 입력 | `string` | 기록할 로그의 수준/종류(정보/경고/오류 등). |
+| `LogType` | 입력 | `string` | 기록할 로그의 수준: Info, Warning, Error, Fatal, Trace 중 하나. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 프로세스 종료  <small>`KillProcess`</small>
@@ -117,3 +117,13 @@
 | 인자 <small>`Arguments`</small> | 입력 | `List<ArgumentInfo>` | 호출 대상에 전달하거나 로그에 추가할 인자 모음(이름-값). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
+## 로그 필드 제거  <small>`RemoveLogFields`</small>
+
+`AddLogFields`로 실행 로그에 덧붙인 사용자 정의 필드 중 지정한 이름의 필드만 제거합니다. 인자 목록의 각 값을 평가한 결과가 제거할 필드 이름으로 사용됩니다.
+
+**속성**
+
+| 속성 | 방향 | 타입 | 설명 |
+|------|------|------|------|
+| 인자 <small>`Arguments`</small> | 입력 | `List<ArgumentInfo>` | 제거할 로그 필드 이름 목록(디자이너 화면에서 편집). 각 값 식의 결과가 필드 이름입니다. |
+| 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |

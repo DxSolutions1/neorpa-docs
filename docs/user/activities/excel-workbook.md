@@ -1,5 +1,5 @@
-<!-- 이 파일은 scripts/gen_activity_stubs.py 로 자동 생성됩니다.
-     직접 편집하지 말고 website/data/activities.yaml 을 고친 뒤 스크립트를 다시 실행하세요. -->
+<!-- 이 파일은 scripts/gen_activities.py 로 자동 생성됩니다.
+     직접 편집하지 말고 data/activities.yaml 을 고친 뒤 `python scripts/gen_activities.py --write` 를 다시 실행하세요. -->
 
 
 # Excel WorkBook
@@ -197,7 +197,7 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 | `output` | 출력 | `string` | 실행 결과를 담을 변수(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
-## 엑셀 셀 읽기  <small>`ReadCell`</small>
+## Read Cell  <small>`ReadCell<T>`</small>
 
 워크북에서 지정한 셀의 값을 읽어 반환합니다.
 
@@ -205,11 +205,12 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
 | `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
 | `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `cell` | 입력 | `string` | 대상 셀 위치(예: A1). |
-| `output` | 출력 | `string` | 실행 결과를 담을 변수(출력). |
+| Cell <small>`range`</small> | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
+| `output` | 출력 | `T` | 실행 결과를 담을 변수(출력). |
+| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 시트 복사  <small>`CopySheet`</small>
 
@@ -250,12 +251,11 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
 | `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `columnNo` | 입력 | `string` | 대상 열 번호(또는 열 문자). |
-| `position` | 입력 | `string` | 삽입하거나 읽을 대상 위치(행/열 번호). |
+| `startCell` | 입력 | `string` | 읽기를 시작할 셀 주소(예: A2). 이 셀부터 아래로 값을 읽습니다. |
 | `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
 | `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `Mode` | 입력 | `string` | 수행할 동작의 모드(삽입/삭제, 읽기 방향 등). |
-| `result` | 출력 | `string` | 읽어온 결과(출력). |
+| `result` | 출력 | `IEnumerable<object>` | 읽어온 결과(출력). |
+| 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 워크북 닫기  <small>`CloseWorkbook`</small>
 
@@ -270,16 +270,16 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 ## 엑셀 워크북 시트 가져오기  <small>`GetWorkbookSheet`</small>
 
-워크북에서 지정한 이름의 시트를 가져옵니다.
+워크북에서 지정한 인덱스(번호)의 시트 이름을 가져옵니다.
 
 **속성**
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
 | `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `index` | 입력 | `string` | 대상 시트의 인덱스(번호). |
-| `Sheet` | 출력 | `string` | 조회된 시트 이름(출력). |
+| `index` | 입력 | `int` | 대상 시트의 인덱스(번호). |
+| `sheet` | 출력 | `string` | 조회된 시트 이름(출력). |
+| 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 워크북 시트 목록 가져오기  <small>`GetWorkbookSheets`</small>
 
@@ -364,6 +364,7 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 | `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
 | `sheetName` | 입력 | `string` | 대상 시트 이름. |
 | `range` | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
+| 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 테이블 범위 가져오기  <small>`GetTableRange`</small>
 
@@ -425,6 +426,5 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 | `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
 | `sheetName` | 입력 | `string` | 대상 시트 이름. |
 | `Mode` | 입력 | `string` | 수행할 동작의 모드(삽입/삭제, 읽기 방향 등). |
-| `result` | 출력 | `string` | 읽어온 결과(출력). |
+| `result` | 출력 | `IEnumerable<object>` | 읽어온 결과(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
-

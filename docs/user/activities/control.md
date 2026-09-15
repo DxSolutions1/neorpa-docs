@@ -1,12 +1,12 @@
-<!-- 이 파일은 scripts/gen_activity_stubs.py 로 자동 생성됩니다.
-     직접 편집하지 말고 website/data/activities.yaml 을 고친 뒤 스크립트를 다시 실행하세요. -->
+<!-- 이 파일은 scripts/gen_activities.py 로 자동 생성됩니다.
+     직접 편집하지 말고 data/activities.yaml 을 고친 뒤 `python scripts/gen_activities.py --write` 를 다시 실행하세요. -->
 
 
 # Control (데스크톱 UI · 파일 · 프로세스)
 
 데스크톱 애플리케이션 UI 자동화(셀렉터·이미지·OCR)와 파일·클립보드·프로세스·코드 실행 유틸.
 
-> 이 카테고리에는 32개의 액티비티가 있습니다. 각 액티비티의 **속성** 표는 소스에서 자동 추출되며(상속 포함), 표시명·설명은 리소스/설명 데이터에서 해석됩니다.
+> 이 카테고리에는 34개의 액티비티가 있습니다. 각 액티비티의 **속성** 표는 소스에서 자동 추출되며(상속 포함), 표시명·설명은 리소스/설명 데이터에서 해석됩니다.
 
 ## 창 연결 (스코프)  <small>`AttachWindowScope`</small>
 
@@ -20,7 +20,6 @@
 | 타임아웃 <small>`Timeout`</small> | 입력 | `int` | 대상을 찾기까지 대기할 최대 시간(밀리초). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 | 애플리케이션 창 <small>`ApplicationWindow`</small> | 출력 | `Process` | 연결하거나 새로 연 애플리케이션 창(프로세스)을 담는 변수. |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
 
 ## 연결 (윈도우)  <small>`AttachWindow`</small>
 
@@ -34,7 +33,6 @@
 | 타임아웃 <small>`Timeout`</small> | 입력 | `int` | 대상을 찾기까지 대기할 최대 시간(밀리초). |
 | 애플리케이션 창 <small>`ApplicationWindow`</small> | 출력 | `Process` | 연결하거나 새로 연 애플리케이션 창(프로세스)을 담는 변수. |
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
 
 ## 텍스트 입력  <small>`TypeInto`</small>
 
@@ -56,7 +54,6 @@
 | 비우기 방식 <small>`ClearMethod`</small> | 입력 | `string` | 입력 전에 기존 필드 내용을 지우는 방식. |
 | 값 <small>`Value`</small> | 입력 | `string` | 대상 요소에 입력할 텍스트. |
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
 
 ## 클릭  <small>`Click`</small>
 
@@ -79,7 +76,31 @@
 | 마우스 버튼 종류 <small>`MouseButton`</small> | 입력 | `string` | 클릭에 사용할 마우스 버튼(왼쪽/오른쪽/가운데). |
 | 클릭 동작 <small>`ClickAction`</small> | 입력 | `string` | 클릭 동작의 종류(단일 클릭, 더블 클릭 등). |
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
+
+## 클릭 V2  <small>`ClickV2`</small>
+
+셀렉터로 지정한 요소를 클릭하는 개선판 클릭 액티비티입니다. 요소 탐색 범위를 제한해 응답이 느린 창에서도 빠르게 대상을 찾고, 셀렉터 속성이 정확히 일치하지 않아도 **유사 일치**로 요소를 찾을 수 있습니다. 속성 구성은 `클릭`과 같고 유사 일치 옵션 세 가지가 추가되었습니다.
+
+**속성**
+
+| 속성 | 방향 | 타입 | 설명 |
+|------|------|------|------|
+| 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
+| 작업 전 타임아웃 <small>`BeforeTimeout`</small> | 입력 | `int` | 동작을 시작하기 전에 대기할 시간(밀리초). |
+| 작업 후 타임아웃 <small>`AfterTimeout`</small> | 입력 | `int` | 동작을 마친 뒤 추가로 대기할 시간(밀리초). |
+| 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
+| 시뮬레이터 사용 <small>`UseSimulator`</small> | 입력 | `bool` | 시뮬레이터(백그라운드 입력) 방식으로 동작할지 여부. |
+| 로딩 상태 <small>`ReadyState`</small> | 입력 | `string` | 동작을 실행하기 전에 기다릴 페이지 로딩 상태(예: INTERACTIVE, COMPLETE). |
+| 유사 일치 사용 <small>`EnableFuzzyMatching`</small> | 입력 | `bool` | 셀렉터와 정확히 일치하는 요소가 없을 때 유사 일치로 대상을 찾을지 여부(기본 true). |
+| 유사 일치 임계값 <small>`FuzzyThreshold`</small> | 입력 | `int` | 유사 일치로 인정할 최소 유사도(0~100, 기본 82). 값이 낮을수록 느슨하게 찾습니다. |
+| 고유 대상 필요 <small>`RequireUniqueTarget`</small> | 입력 | `bool` | 유사 일치 후보가 여럿일 때 가장 높은 점수의 요소가 확실히 구분되는 경우에만 클릭할지 여부(기본 true). 구분되지 않으면 실패로 처리합니다. |
+| 사각 영역 <small>`RectArea`</small> | 입력 | `string` | 대상 요소의 화면상 사각 영역(경계 좌표). |
+| 위치 <small>`ClickPosition`</small> | 입력 | `string` | 요소 영역 안에서 클릭 기준으로 삼을 지점(가운데, 좌상단 등). |
+| 오프셋 X <small>`OffsetX`</small> | 입력 | `int` | 클릭 기준점에서 가로로 이동할 오프셋(픽셀). |
+| 오프셋 Y <small>`OffsetY`</small> | 입력 | `int` | 클릭 기준점에서 세로로 이동할 오프셋(픽셀). |
+| 마우스 버튼 종류 <small>`MouseButton`</small> | 입력 | `string` | 클릭에 사용할 마우스 버튼(왼쪽/오른쪽/가운데). |
+| 클릭 동작 <small>`ClickAction`</small> | 입력 | `string` | 클릭 동작의 종류(단일 클릭, 더블 클릭 등). |
+| 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 
 ## 클릭 (Vision)  <small>`ClickVision`</small>
 
@@ -93,7 +114,6 @@ OCR/비전 하이브리드로 화면의 텍스트·요소를 찾아 클릭합니
 | 작업 전 타임아웃 <small>`BeforeTimeout`</small> | 입력 | `int` | 동작을 시작하기 전에 대기할 시간(밀리초). |
 | 작업 후 타임아웃 <small>`AfterTimeout`</small> | 입력 | `int` | 동작을 마친 뒤 추가로 대기할 시간(밀리초). |
 | 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
-| `VisionTarget` | 입력 | `string` | 비전 매칭 대상 정보(텍스트·앵커·이미지)를 담은 내부 기술서(JSON). |
 | 대상 텍스트 <small>`TargetText`</small> | 입력 | `string` | 화면 비전으로 찾을 대상의 텍스트. |
 | 앵커 텍스트 <small>`AnchorText`</small> | 입력 | `string` | 대상 요소를 찾을 때 기준점으로 삼는 주변 텍스트. |
 | 앵커 위치 <small>`AnchorPosition`</small> | 입력 | `string` | 앵커 텍스트를 기준으로 대상이 위치한 방향(위/아래/좌/우 등). |
@@ -105,7 +125,6 @@ OCR/비전 하이브리드로 화면의 텍스트·요소를 찾아 클릭합니
 | 마우스 버튼 종류 <small>`MouseButton`</small> | 입력 | `string` | 클릭에 사용할 마우스 버튼(왼쪽/오른쪽/가운데). |
 | 클릭 동작 <small>`ClickAction`</small> | 입력 | `string` | 클릭 동작의 종류(단일 클릭, 더블 클릭 등). |
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
 
 ## 클릭 (이미지)  <small>`ImageClick`</small>
 
@@ -156,9 +175,8 @@ OCR/비전 하이브리드로 화면의 텍스트·요소를 찾아 클릭합니
 | 작업 후 타임아웃 <small>`AfterTimeout`</small> | 입력 | `int` | 동작을 마친 뒤 추가로 대기할 시간(밀리초). |
 | 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
 
-## 텍스트 가져오기 (윈도우)  <small>`GetText`</small>
+## 텍스트 가져오기  <small>`GetText`</small>
 
 셀렉터로 지정한 요소의 텍스트를 읽어 반환합니다.
 
@@ -173,7 +191,6 @@ OCR/비전 하이브리드로 화면의 텍스트·요소를 찾아 클릭합니
 | 로딩 상태 <small>`ReadyState`</small> | 입력 | `string` | 동작을 실행하기 전에 기다릴 페이지 로딩 상태(예: INTERACTIVE, COMPLETE). |
 | 결과 <small>`Result`</small> | 출력 | `string` | 액티비티 실행 결과(출력). |
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
 
 ## 속성 가져오기  <small>`GetAttribute`</small>
 
@@ -191,7 +208,6 @@ OCR/비전 하이브리드로 화면의 텍스트·요소를 찾아 클릭합니
 | 결과 <small>`Result`</small> | 출력 | `string` | 액티비티 실행 결과(출력). |
 | 전체 속성 <small>`Attributes`</small> | 출력 | `Dictionary<string, string>` | 요소의 모든 속성을 이름-값 사전으로 담는 출력. |
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
 
 ## 단축키 실행  <small>`Hotkey`</small>
 
@@ -222,7 +238,6 @@ OCR/비전 하이브리드로 화면의 텍스트·요소를 찾아 클릭합니
 | `TimeOut` | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
 | 존재 여부 <small>`IsExist`</small> | 출력 | `bool` | 대상 요소의 존재 여부(출력). |
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
 
 ## 스크린샷 캡처  <small>`TakeScreenshot`</small>
 
@@ -238,7 +253,6 @@ OCR/비전 하이브리드로 화면의 텍스트·요소를 찾아 클릭합니
 | 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
 | 스크린샷 <small>`Screenshot`</small> | 출력 | `Image` | 캡처한 스크린샷 이미지(출력). |
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
 
 ## 이미지 저장  <small>`SaveImage`</small>
 
@@ -275,10 +289,10 @@ OCR/비전 하이브리드로 화면의 텍스트·요소를 찾아 클릭합니
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
 | `WorkflowFilePath` | 입력 | `string` | 호출할 워크플로(.xaml) 파일 경로. |
-| 인자 <small>`Arguments`</small> | 입력 | `IDictionary<string, object>` | 호출 대상에 전달하거나 로그에 추가할 인자 모음(이름-값). |
+| 인자 <small>`Arguments`</small> | 입력 | `List<ArgumentInfo>` | 호출 대상에 전달하거나 로그에 추가할 인자 모음(이름-값). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
-## 메시지 박스  <small>`MessageBox`</small>
+## 메시지 상자  <small>`MessageBox`</small>
 
 메시지 상자를 띄워 사용자에게 안내 문구를 보여 줍니다.
 
@@ -461,6 +475,17 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 | `path` | 입력 | `string` | 대상 파일 또는 폴더의 경로. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
+## 항목 삭제(파일/디렉토리)  <small>`DeleteFileOrDirectory`</small>
+
+지정한 경로가 파일이면 파일을, 폴더면 하위 내용까지 포함해 삭제합니다. 경로가 존재하지 않으면 오류가 발생합니다. 파일과 폴더를 구분하지 않고 지울 때 `파일 삭제`·`디렉토리 삭제` 대신 사용합니다.
+
+**속성**
+
+| 속성 | 방향 | 타입 | 설명 |
+|------|------|------|------|
+| `path` | 입력 | `string` | 삭제할 파일 또는 폴더 경로. 상대 경로는 프로젝트 루트 기준으로 해석됩니다. |
+| 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
+
 ## 주석 처리  <small>`CommentOut`</small>
 
 본문에 담긴 자식 액티비티를 실행하지 않고 건너뜁니다. 일부 단계를 임시로 비활성화(주석 처리)할 때 사용합니다.
@@ -470,4 +495,3 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
 | `Note` | 설정 | `string` | 액티비티에 남기는 메모(주석)로, 실행에는 영향을 주지 않는다. |
-

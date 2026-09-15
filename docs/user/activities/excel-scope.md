@@ -1,5 +1,5 @@
-<!-- 이 파일은 scripts/gen_activity_stubs.py 로 자동 생성됩니다.
-     직접 편집하지 말고 website/data/activities.yaml 을 고친 뒤 스크립트를 다시 실행하세요. -->
+<!-- 이 파일은 scripts/gen_activities.py 로 자동 생성됩니다.
+     직접 편집하지 말고 data/activities.yaml 을 고친 뒤 `python scripts/gen_activities.py --write` 를 다시 실행하세요. -->
 
 
 # Excel Scope
@@ -20,6 +20,9 @@ Excel Scope 안에서 외부 VBA 파일을 불러와 지정한 함수를 실행�
 | `FunctionName` | 입력 | `string` | 실행할 VBA 함수/매크로 이름. |
 | `Parameters` | 입력 | `object[]` | VBA 함수에 전달할 인수 배열. |
 | `Output` | 출력 | `object` | 실행 결과 개체(출력). |
+| `RestoreExcelUiState` | 설정 | `bool` | VBA 실행 전 Excel 애플리케이션의 UI 상태(화면 갱신·경고 표시·이벤트·계산 모드·표시 여부 등)를 기억해 두고 실행 후 되돌릴지 여부(기본 true). |
+| Accessibility Recovery Timeout (ms) <small>`AccessibilityRecoveryTimeoutMs`</small> | 설정 | `int` | VBA 실행 후 Excel이 다시 응답(Ready) 상태가 될 때까지 기다릴 최대 시간(밀리초, 기본 5000). |
+| `RestartOwnedExcelOnAccessibilityFailure` | 설정 | `bool` | 대기 시간 안에 Excel이 응답하지 않으면, 이 스코프가 직접 연 Excel인 경우 Excel을 다시 시작해 복구할지 여부(기본 true). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 스코프  <small>`ExcelScope`</small>
@@ -31,7 +34,7 @@ Excel Scope 안에서 외부 VBA 파일을 불러와 지정한 함수를 실행�
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
 | `filepath` | 입력 | `string` | 대상 파일의 경로. |
-| `InputWorkbook` | 입력 | `Workbook` | 작업 대상으로 사용할, 이미 열려 있는 워크북 개체. |
+| Workbook <small>`InputWorkbook`</small> | 입력 | `Workbook` | 작업 대상으로 사용할, 이미 열려 있는 워크북 개체. |
 | `CreateFile` | 설정 | `bool` | 대상 파일이 없으면 새로 만들지 여부. |
 | `Visible` | 설정 | `bool` | 엑셀 애플리케이션 창을 화면에 표시할지 여부. |
 | `Save` | 설정 | `bool` | 스코프를 마칠 때 워크북을 저장할지 여부. |
@@ -90,7 +93,7 @@ Excel Scope 안에서 워크북에 저장된 매크로를 이름으로 실행합
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
 | `macroName` | 입력 | `string` | 실행할 매크로 이름. |
-| `macroParameters` | 입력 | `string` | 매크로에 전달할 인수. |
+| `macroParameters` | 입력 | `IEnumerable<object>` | 매크로에 전달할 인수. |
 | `macroOutput` | 출력 | `object` | 매크로 실행 결과(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
@@ -214,11 +217,11 @@ Excel Scope 안에서 지정한 셀의 배경 색상을 가져옵니다.
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
 | `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `range` | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
+| cell <small>`range`</small> | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
 | `color` | 출력 | `Color` | 셀 색상. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
-## 엑셀 셀 읽기  <small>`ReadCell`</small>
+## Read Cell  <small>`ReadCell<T>`</small>
 
 Excel Scope 안에서 지정한 셀의 값을 읽어 반환합니다.
 
@@ -227,7 +230,7 @@ Excel Scope 안에서 지정한 셀의 값을 읽어 반환합니다.
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
 | `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `range` | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
+| Cell <small>`range`</small> | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
 | `output` | 출력 | `T` | 실행 결과를 담을 변수(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
@@ -343,7 +346,7 @@ Excel Scope 안에서 지정한 범위에서 특정 값을 찾아 그 위치(셀
 | `sheetName` | 입력 | `string` | 대상 시트 이름. |
 | `range` | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
 | `value` | 입력 | `string` | 기록하거나 조회할 값. |
-| `MatchMode` | 설정 | `LookupMatchMode` | 값을 조회할 때 일치시키는 방식(정확히 일치, 부분 일치 등). |
+| 검색 조건 <small>`MatchMode`</small> | 설정 | `LookupMatchMode` | 값을 조회할 때 일치시키는 방식(정확히 일치, 부분 일치 등). |
 | `output` | 출력 | `string` | 실행 결과를 담을 변수(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
@@ -451,6 +454,5 @@ Excel Scope 안에서 지정한 행 전체를 읽어 반환합니다.
 |------|------|------|------|
 | `StartingCell` | 입력 | `string` | 작업을 시작할 기준 셀 위치(예: A1). |
 | `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `result` | 출력 | `string` | 읽어온 결과(출력). |
+| `result` | 출력 | `IEnumerable<object>` | 읽어온 결과(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
-

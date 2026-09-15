@@ -1,5 +1,5 @@
-<!-- 이 파일은 scripts/gen_activity_stubs.py 로 자동 생성됩니다.
-     직접 편집하지 말고 website/data/activities.yaml 을 고친 뒤 스크립트를 다시 실행하세요. -->
+<!-- 이 파일은 scripts/gen_activities.py 로 자동 생성됩니다.
+     직접 편집하지 말고 data/activities.yaml 을 고친 뒤 `python scripts/gen_activities.py --write` 를 다시 실행하세요. -->
 
 
 # Chrome (일반)
@@ -41,8 +41,6 @@
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 | 로딩 상태 <small>`ReadyState`</small> | 입력 | `string` | 동작을 실행하기 전에 기다릴 페이지 로딩 상태(예: INTERACTIVE, COMPLETE). |
 | 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
-| XPath <small>`Xpath`</small> | 입력 | `string` | 대상 요소를 찾는 데 사용하는 XPath 식. |
 
 ## 마우스 오버 (일반 크롬)  <small>`HoverBrowserNative`</small>
 
@@ -63,8 +61,6 @@
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 | 로딩 상태 <small>`ReadyState`</small> | 입력 | `string` | 동작을 실행하기 전에 기다릴 페이지 로딩 상태(예: INTERACTIVE, COMPLETE). |
 | 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
-| XPath <small>`Xpath`</small> | 입력 | `string` | 대상 요소를 찾는 데 사용하는 XPath 식. |
 
 ## 텍스트 입력 (일반 크롬)  <small>`TypeIntoBrowserNative`</small>
 
@@ -88,8 +84,6 @@
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 | 로딩 상태 <small>`ReadyState`</small> | 입력 | `string` | 동작을 실행하기 전에 기다릴 페이지 로딩 상태(예: INTERACTIVE, COMPLETE). |
 | 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
-| XPath <small>`Xpath`</small> | 입력 | `string` | 대상 요소를 찾는 데 사용하는 XPath 식. |
 
 ## 텍스트 가져오기 (일반 크롬)  <small>`GetTextBrowserNative`</small>
 
@@ -107,8 +101,6 @@
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 | 로딩 상태 <small>`ReadyState`</small> | 입력 | `string` | 동작을 실행하기 전에 기다릴 페이지 로딩 상태(예: INTERACTIVE, COMPLETE). |
 | 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
-| XPath <small>`Xpath`</small> | 입력 | `string` | 대상 요소를 찾는 데 사용하는 XPath 식. |
 
 ## 속성 가져오기 (일반 크롬)  <small>`GetAttributeBrowserNative`</small>
 
@@ -127,8 +119,6 @@
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 | 로딩 상태 <small>`ReadyState`</small> | 입력 | `string` | 동작을 실행하기 전에 기다릴 페이지 로딩 상태(예: INTERACTIVE, COMPLETE). |
 | 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
-| XPath <small>`Xpath`</small> | 입력 | `string` | 대상 요소를 찾는 데 사용하는 XPath 식. |
 
 ## 요소 존재 확인 (일반 크롬)  <small>`ElementExistsBrowserNative`</small>
 
@@ -146,8 +136,6 @@
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 | 로딩 상태 <small>`ReadyState`</small> | 입력 | `string` | 동작을 실행하기 전에 기다릴 페이지 로딩 상태(예: INTERACTIVE, COMPLETE). |
 | 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
-| XPath <small>`Xpath`</small> | 입력 | `string` | 대상 요소를 찾는 데 사용하는 XPath 식. |
 
 ## 데이터 추출 (일반 크롬)  <small>`ExtractDataBrowserNative`</small>
 
@@ -169,6 +157,3 @@
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 | 로딩 상태 <small>`ReadyState`</small> | 입력 | `string` | 동작을 실행하기 전에 기다릴 페이지 로딩 상태(예: INTERACTIVE, COMPLETE). |
 | 요소 찾기 대기 시간 <small>`WaitTimeout`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
-| 이미지 정보 <small>`PicInfo`</small> | 입력 | `string` | 대상 요소를 재탐색하고 화면에 하이라이트하기 위해 캡처해 둔 이미지 정보. |
-| XPath <small>`Xpath`</small> | 입력 | `string` | 대상 요소를 찾는 데 사용하는 XPath 식. |
-
