@@ -41,7 +41,8 @@ Windows 콘솔에서 한글이 깨지면 `$env:PYTHONUTF8=1`.
 2. `gen_activities.py --check` 의 ERROR 를 없앤다: 새 액티비티/속성은 **원본 .cs·디자이너 xaml·커밋 메시지를 읽고** yaml 에 설명을 쓴다.
 3. `--write` 후 `git diff docs/user/activities` 로 의도한 변경만 있는지 본다.
 4. `data/source-map.yaml` 매핑대로 수기 페이지를 점검·수정한다.
-5. `docs/changelog.md` 맨 위에 항목을 추가한다(날짜 · 버전 · 원본 커밋 범위 · 새/변경 액티비티 · 디자이너 · 원격 · 문서).
+5. `docs/changelog.md` 맨 위에 항목을 추가한다(날짜 · 버전 · 원본 커밋 범위 · 새/변경 액티비티 · 디자이너 · 원격 · 문서). 절 제목에는 `{ #v2-2-3 }` 앵커(세 자리)를 붙인다 — 앱의 [릴리스 노트] 버튼과 채널 JSON `notes` 가 이 앵커로 연다.
+   **Blob 에 MSI 가 올라간 버전은 `docs/downloads.md` 표에도 한 줄 추가한다**(버전 · 게시일 · `https://stneorparelease.blob.core.windows.net/releases/msi/NeoRPA-v{버전}.msi` · 크기 · 변경 이력 링크, SHA-256 은 접힌 표에). 앱의 [모든 버전 다운로드] 버튼이 이 페이지(`/downloads/`)로 연다. 이전 "(최신)" 표시를 옮긴다.
 6. `scripts/build.ps1` 이 경고 없이 통과해야 한다. 새 페이지는 `mkdocs.yml` `nav` 에 직접 추가(`!!python/name:` 태그 때문에 YAML 라이브러리로 재직렬화하지 말 것).
 7. 커밋 메시지: `docs: sync with rpa-designer <7자 해시> (v<버전>)`. **push 는 사용자 확인 후**(공개 사이트 즉시 배포).
 
