@@ -23,7 +23,7 @@ NeoRPA 설치 프로그램(MSI)을 버전별로 내려받는 페이지입니다.
 
     | 버전 | SHA-256 |
     |---|---|
-    | 2.2.3.0 | `97ff853b7c091712eaadcc02a0c0b670019cf8a6ab67fad626b930f63788413a` |
+    | 2.2.3.0 | `cc7cf5e9bc01f1fbcda178e6c3ab209af6a30497a594c014c540df2546e77915` |
     | 2.2.2.0 | `9c1ae1eeeba162b7e839da6728bb3e280bcbf388dee88fabfed1c06d928261ed` |
     | 2.2.1.0 | `5d676f1e4865375465b18e8d900d6612f03f5464bdce44a9b1fe8f4d4646fa13` |
     | 2.2.0.0 | `4354f60ffb114bd591cdca514aa7ba62cbdc2603c3bbaea71e41e12d74ed340e` |
