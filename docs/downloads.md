@@ -11,7 +11,8 @@ NeoRPA 설치 프로그램(MSI)을 버전별로 내려받는 페이지입니다.
 
 | 버전 | 게시일 | 설치 파일 | 크기 | 릴리스 노트 |
 |---|---|---|---|---|
-| **2.2.3.0** (최신) | 2026-10-08 | [NeoRPA-v2.2.3.0.msi](https://stneorparelease.blob.core.windows.net/releases/msi/NeoRPA-v2.2.3.0.msi) | 143 MB | [2.2.3 변경 사항](changelog.md#v2-2-3) |
+| **2.2.4.0** (최신) | 2026-10-17 | [NeoRPA-v2.2.4.0.msi](https://stneorparelease.blob.core.windows.net/releases/msi/NeoRPA-v2.2.4.0.msi) | 143 MB | [2.2.4 변경 사항](changelog.md#v2-2-4) |
+| 2.2.3.0 | 2026-10-08 | [NeoRPA-v2.2.3.0.msi](https://stneorparelease.blob.core.windows.net/releases/msi/NeoRPA-v2.2.3.0.msi) | 143 MB | [2.2.3 변경 사항](changelog.md#v2-2-3) |
 | 2.2.2.0 | 2026-10-08 | [NeoRPA-v2.2.2.0.msi](https://stneorparelease.blob.core.windows.net/releases/msi/NeoRPA-v2.2.2.0.msi) | 143 MB | [2.2.2 변경 사항](changelog.md#v2-2-2) |
 | 2.2.1.0 | 2026-10-07 | [NeoRPA-v2.2.1.0.msi](https://stneorparelease.blob.core.windows.net/releases/msi/NeoRPA-v2.2.1.0.msi) | 143 MB | [2.2.1 변경 사항](changelog.md#v2-2-1) |
 | 2.2.0.0 | 2026-10-07 | [NeoRPA-v2.2.0.0.msi](https://stneorparelease.blob.core.windows.net/releases/msi/NeoRPA-v2.2.0.0.msi) | 143 MB | [2.2.0 변경 사항](changelog.md#v2-2-0) |
@@ -19,10 +20,11 @@ NeoRPA 설치 프로그램(MSI)을 버전별로 내려받는 페이지입니다.
 2.1.x 이하 버전은 배포 담당자에게 직접 받습니다(온라인 배포는 2.2.0 부터).
 
 ??? note "파일 무결성 확인 (SHA-256)"
-    내려받은 파일이 손상되지 않았는지 확인하려면 PowerShell 에서 `Get-FileHash .\NeoRPA-v2.2.3.0.msi` 를 실행해 아래 값과 비교하세요. NeoRPA 의 앱 내 업데이트는 이 검사를 자동으로 합니다.
+    내려받은 파일이 손상되지 않았는지 확인하려면 PowerShell 에서 `Get-FileHash .\NeoRPA-v2.2.4.0.msi` 를 실행해 아래 값과 비교하세요. NeoRPA 의 앱 내 업데이트는 이 검사를 자동으로 합니다.
 
     | 버전 | SHA-256 |
     |---|---|
+    | 2.2.4.0 | `15b565375d7bd486cf5a7dfce034f50d0ca1add8e18a09bbcf71afac8d8e0808` |
     | 2.2.3.0 | `5e24a2bbb9c912d4b5300de11b42e957e4e3d4c11ec663b94d8300562ec77dce` |
     | 2.2.2.0 | `9c1ae1eeeba162b7e839da6728bb3e280bcbf388dee88fabfed1c06d928261ed` |
     | 2.2.1.0 | `5d676f1e4865375465b18e8d900d6612f03f5464bdce44a9b1fe8f4d4646fa13` |
