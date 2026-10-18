@@ -64,6 +64,7 @@ nav:
   - 사용자 가이드:
       - 개요: user/index.md
       - 시작하기: user/getting-started.md
+      - 인터넷이 안 되는 PC 의 라이선스: user/offline-license.md
       - 기본 개념: user/concepts.md
       - 액티비티 사용법:
           - 개요: user/activities/index.md
