@@ -393,6 +393,57 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 | `path` | 입력 | `string` | 대상 파일 또는 폴더의 경로. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
+## 텍스트 파일 읽기  <small>`ReadTextFile`</small>
+
+텍스트 파일 전체를 읽어 문자열로 돌려줍니다.
+
+**속성**
+
+| 속성 | 방향 | 타입 | 설명 |
+|------|------|------|------|
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 읽을 파일 경로. 상대 경로는 프로젝트 폴더 기준. |
+| 인코딩 <small>`Encoding`</small> | 입력 | `string` | 인코딩 이름(`utf-8`, `euc-kr`, `utf-16` …). 비우면 UTF-8(BOM 자동 인식). |
+| 결과 <small>`Result`</small> | 출력 | `string` | 읽은 내용. |
+| 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
+
+## 텍스트 파일 쓰기  <small>`WriteTextFile`</small>
+
+텍스트를 파일에 씁니다. 파일이 있으면 **통째로 덮어쓰고**, 폴더가 없으면 만듭니다. 임시 파일에 다 쓴 뒤 바꿔 넣으므로 쓰는 도중 실패해도 반쪽짜리 파일이 남지 않습니다. UiPath의 Write Text File 에 해당합니다.
+
+**속성**
+
+| 속성 | 방향 | 타입 | 설명 |
+|------|------|------|------|
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 쓸 파일 경로. 상대 경로는 프로젝트 폴더 기준. 카드의 […] 로 새 파일 이름을 고를 수 있습니다. |
+| 텍스트 <small>`Text`</small> | 입력 | `string` | 쓸 내용. |
+| 인코딩 <small>`Encoding`</small> | 입력 | `string` | 인코딩 이름(`utf-8`, `euc-kr`, `utf-16` …). 비우면 BOM 없는 UTF-8. |
+| 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
+
+## 줄 추가  <small>`AppendLine`</small>
+
+텍스트 한 줄을 파일 **끝에 덧붙입니다**(끝에 줄 바꿈을 넣음). 파일이 없으면 만들고 폴더가 없으면 만듭니다. 실행 로그나 처리 결과를 누적할 때 씁니다. UiPath의 Append Line 에 해당합니다.
+
+**속성**
+
+| 속성 | 방향 | 타입 | 설명 |
+|------|------|------|------|
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 덧붙일 파일 경로. 상대 경로는 프로젝트 폴더 기준. |
+| 텍스트 <small>`Text`</small> | 입력 | `string` | 덧붙일 한 줄. 줄 바꿈은 자동으로 붙습니다. |
+| 인코딩 <small>`Encoding`</small> | 입력 | `string` | 인코딩 이름. 비우면 BOM 없는 UTF-8. 이미 있는 파일에 덧붙일 때는 그 파일의 인코딩과 맞추세요. |
+| 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
+
+## 파일 생성  <small>`CreateFile`</small>
+
+빈 파일을 만듭니다. 폴더가 없으면 만들고, 이미 있는 파일은 **덮어쓰기**가 켜져 있을 때만 비웁니다. UiPath의 Create File 에 해당합니다.
+
+**속성**
+
+| 속성 | 방향 | 타입 | 설명 |
+|------|------|------|------|
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 만들 파일 경로. 상대 경로는 프로젝트 폴더 기준. |
+| 덮어쓰기 <small>`Overwrite`</small> | 설정 | `bool` | 이미 있는 파일을 비울지 여부. 기본은 그대로 둡니다. |
+| 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
+
 ## 프로세스 시작  <small>`StartProcess`</small>
 
 지정한 프로그램(실행 파일)을 인자와 함께 실행합니다.
