@@ -16,12 +16,12 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `ExcelFilePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `VBAfilePath` | 입력 | `string` | 가져올 VBA 매크로 파일의 경로. |
-| `FunctionName` | 입력 | `string` | 실행할 VBA 함수/매크로 이름. |
-| `Parameters` | 입력 | `object[]` | VBA 함수에 전달할 인수 배열. |
-| `Output` | 출력 | `object` | 실행 결과 개체(출력). |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| Excel 파일 경로 <small>`ExcelFilePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| VBA 파일 경로 <small>`VBAfilePath`</small> | 입력 | `string` | 가져올 VBA 매크로 파일의 경로. |
+| 함수 이름 <small>`FunctionName`</small> | 입력 | `string` | 실행할 VBA 함수/매크로 이름. |
+| 매개 변수 <small>`Parameters`</small> | 입력 | `object[]` | VBA 함수에 전달할 인수 배열. |
+| 출력 <small>`Output`</small> | 출력 | `object` | 실행 결과 개체(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 쓰기  <small>`ExcelWrite`</small>
@@ -32,11 +32,11 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `range` | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
-| `value` | 입력 | `string` | 기록하거나 조회할 값. |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 범위 <small>`range`</small> | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
+| 값 <small>`value`</small> | 입력 | `string` | 기록하거나 조회할 값. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 필터 적용  <small>`ExcelFilter`</small>
@@ -47,12 +47,12 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `columnName` | 입력 | `string` | 대상 열 이름. |
-| `tableName` | 입력 | `string` | 대상 테이블 이름. |
-| `filterOption` | 입력 | `string[]` | 적용할 필터 조건 목록. |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 열 이름 <small>`columnName`</small> | 입력 | `string` | 대상 열 이름. |
+| 테이블 이름 <small>`tableName`</small> | 입력 | `string` | 대상 테이블 이름. |
+| 필터 옵션 <small>`filterOption`</small> | 입력 | `string[]` | 적용할 필터 조건 목록. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 범위 복사  <small>`CopyRange`</small>
@@ -63,17 +63,17 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `range` | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
-| `CopyValue` | 설정 | `bool` | 셀 값을 복사할지 여부. |
-| `CopyNumberFormat` | 설정 | `bool` | 숫자 표시 형식을 함께 복사할지 여부. |
-| `CopyCellFormat` | 설정 | `bool` | 셀 서식을 함께 복사할지 여부. |
-| `CopyFormula` | 설정 | `bool` | 수식을 함께 복사할지 여부. |
-| `CopyAll` | 설정 | `bool` | 원본 범위의 모든 항목(값·서식·수식)을 복사할지 여부. |
-| `DestinationCell` | 입력 | `string` | 붙여넣을 대상 셀 위치(예: A1). |
-| `DestinationSheet` | 입력 | `string` | 대상 시트 이름. |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 범위 <small>`range`</small> | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
+| 값 복사 <small>`CopyValue`</small> | 설정 | `bool` | 셀 값을 복사할지 여부. |
+| 숫자 서식 복사 <small>`CopyNumberFormat`</small> | 설정 | `bool` | 숫자 표시 형식을 함께 복사할지 여부. |
+| 셀 서식 복사 <small>`CopyCellFormat`</small> | 설정 | `bool` | 셀 서식을 함께 복사할지 여부. |
+| 수식 복사 <small>`CopyFormula`</small> | 설정 | `bool` | 수식을 함께 복사할지 여부. |
+| 모두 복사 <small>`CopyAll`</small> | 설정 | `bool` | 원본 범위의 모든 항목(값·서식·수식)을 복사할지 여부. |
+| 대상 셀 <small>`DestinationCell`</small> | 입력 | `string` | 붙여넣을 대상 셀 위치(예: A1). |
+| 대상 시트 <small>`DestinationSheet`</small> | 입력 | `string` | 대상 시트 이름. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 범위 삭제  <small>`DeleteRange`</small>
@@ -84,15 +84,15 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `shiftCells` | 설정 | `bool` | 셀을 삭제한 뒤 남은 셀을 이동시킬지 여부. |
-| `shiftUp` | 설정 | `bool` | 셀을 삭제한 뒤 남은 셀을 위로 이동시킬지 여부. |
-| `shiftLeft` | 설정 | `bool` | 셀을 삭제한 뒤 남은 셀을 왼쪽으로 이동시킬지 여부. |
-| `EntireRow` | 설정 | `bool` | 행 전체를 대상으로 삭제할지 여부. |
-| `EntireColumn` | 설정 | `bool` | 열 전체를 대상으로 삭제할지 여부. |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `range` | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 셀 이동 <small>`shiftCells`</small> | 설정 | `bool` | 셀을 삭제한 뒤 남은 셀을 이동시킬지 여부. |
+| 위로 이동 <small>`shiftUp`</small> | 설정 | `bool` | 셀을 삭제한 뒤 남은 셀을 위로 이동시킬지 여부. |
+| 왼쪽으로 이동 <small>`shiftLeft`</small> | 설정 | `bool` | 셀을 삭제한 뒤 남은 셀을 왼쪽으로 이동시킬지 여부. |
+| 전체 행 <small>`EntireRow`</small> | 설정 | `bool` | 행 전체를 대상으로 삭제할지 여부. |
+| 전체 열 <small>`EntireColumn`</small> | 설정 | `bool` | 열 전체를 대상으로 삭제할지 여부. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 범위 <small>`range`</small> | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 범위 색상 설정  <small>`SetRangeColor`</small>
@@ -103,11 +103,11 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `range` | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
-| `color` | 입력 | `string` | 셀 색상. |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 범위 <small>`range`</small> | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
+| 색 <small>`color`</small> | 입력 | `string` | 셀 색상. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 범위 선택  <small>`SelectRange`</small>
@@ -118,10 +118,10 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `range` | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 범위 <small>`range`</small> | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 범위 읽기  <small>`ReadRange`</small>
@@ -132,14 +132,14 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
 | `PreserveFormat` | 설정 | `bool` | 셀의 표시 서식을 유지한 채 값을 읽을지 여부. |
 | `AddHeader` | 설정 | `bool` | 첫 행을 열 머리글로 포함할지 여부. |
 | `useFilter` | 설정 | `bool` | 읽을 때 적용된 필터를 반영할지 여부. |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `range` | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
-| `output` | 출력 | `DataTable` | 실행 결과를 담을 변수(출력). |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 범위 <small>`range`</small> | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
+| 출력 <small>`output`</small> | 출력 | `DataTable` | 실행 결과를 담을 변수(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 범위 추가  <small>`AppendRange`</small>
@@ -150,10 +150,10 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `dataTable` | 입력 | `DataTable` | 작업 대상이 되는 DataTable. |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 데이터 테이블 <small>`dataTable`</small> | 입력 | `DataTable` | 작업 대상이 되는 DataTable. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 선택 범위 가져오기  <small>`GetSelectedRange`</small>
@@ -164,8 +164,8 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `range` | 출력 | `string` | 대상 셀 범위(예: A1:C10). |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 범위 <small>`range`</small> | 출력 | `string` | 대상 셀 범위(예: A1:C10). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 셀 색상 가져오기  <small>`GetCellColor`</small>
@@ -176,10 +176,10 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `cell` | 입력 | `string` | 대상 셀 위치(예: A1). |
-| `color` | 출력 | `string` | 셀 색상. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 셀 <small>`cell`</small> | 입력 | `string` | 대상 셀 위치(예: A1). |
+| 색 <small>`color`</small> | 출력 | `string` | 셀 색상. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 셀 수식 읽기  <small>`ReadCellFormula`</small>
@@ -190,11 +190,11 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `cell` | 입력 | `string` | 대상 셀 위치(예: A1). |
-| `output` | 출력 | `string` | 실행 결과를 담을 변수(출력). |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 셀 <small>`cell`</small> | 입력 | `string` | 대상 셀 위치(예: A1). |
+| 출력 <small>`output`</small> | 출력 | `string` | 실행 결과를 담을 변수(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## Read Cell  <small>`ReadCell<T>`</small>
@@ -205,11 +205,11 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| Cell <small>`range`</small> | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
-| `output` | 출력 | `T` | 실행 결과를 담을 변수(출력). |
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 범위 <small>`range`</small> | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
+| 출력 <small>`output`</small> | 출력 | `T` | 실행 결과를 담을 변수(출력). |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 시트 복사  <small>`CopySheet`</small>
@@ -220,10 +220,10 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `DestinationSheet` | 입력 | `string` | 대상 시트 이름. |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 대상 시트 <small>`DestinationSheet`</small> | 입력 | `string` | 대상 시트 이름. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 열 삽입/삭제  <small>`InsertDeleteCol`</small>
@@ -234,12 +234,12 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `columnNo` | 입력 | `int` | 대상 열 번호(또는 열 문자). |
-| `position` | 입력 | `int` | 삽입하거나 읽을 대상 위치(행/열 번호). |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `Mode` | 입력 | `string` | 수행할 동작의 모드(삽입/삭제, 읽기 방향 등). |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 열 번호 <small>`columnNo`</small> | 입력 | `int` | 대상 열 번호(또는 열 문자). |
+| 위치 <small>`position`</small> | 입력 | `int` | 삽입하거나 읽을 대상 위치(행/열 번호). |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 모드 <small>`Mode`</small> | 입력 | `string` | 수행할 동작의 모드(삽입/삭제, 읽기 방향 등). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 열 읽기  <small>`ReadColumn`</small>
@@ -250,11 +250,11 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `startCell` | 입력 | `string` | 읽기를 시작할 셀 주소(예: A2). 이 셀부터 아래로 값을 읽습니다. |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `result` | 출력 | `IEnumerable<object>` | 읽어온 결과(출력). |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 시작 셀 <small>`startCell`</small> | 입력 | `string` | 읽기를 시작할 셀 주소(예: A2). 이 셀부터 아래로 값을 읽습니다. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 결과 <small>`result`</small> | 출력 | `IEnumerable<object>` | 읽어온 결과(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 워크북 닫기  <small>`CloseWorkbook`</small>
@@ -265,7 +265,7 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 워크북 시트 가져오기  <small>`GetWorkbookSheet`</small>
@@ -276,9 +276,9 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `index` | 입력 | `int` | 대상 시트의 인덱스(번호). |
-| `sheet` | 출력 | `string` | 조회된 시트 이름(출력). |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 인덱스 <small>`index`</small> | 입력 | `int` | 대상 시트의 인덱스(번호). |
+| 시트 <small>`sheet`</small> | 출력 | `string` | 조회된 시트 이름(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 워크북 시트 목록 가져오기  <small>`GetWorkbookSheets`</small>
@@ -289,8 +289,8 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheets` | 출력 | `List<string>` | 워크북에 있는 시트 이름 목록(출력). |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 목록 <small>`sheets`</small> | 출력 | `List<string>` | 워크북에 있는 시트 이름 목록(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 범위 자동 채우기  <small>`AutoFillRange`</small>
@@ -301,11 +301,11 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `FillRange` | 입력 | `string` | 자동 채우기를 확장할 대상 범위(예: A1:A10). |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `range` | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 채우기 범위 <small>`FillRange`</small> | 입력 | `string` | 자동 채우기를 확장할 대상 범위(예: A1:A10). |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 범위 <small>`range`</small> | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 저장  <small>`Save`</small>
@@ -316,7 +316,7 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
 | `saveName` | 입력 | `string` | 저장할 파일 이름 또는 경로. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
@@ -328,12 +328,12 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `columnName` | 입력 | `string` | 대상 열 이름. |
-| `tableName` | 입력 | `string` | 대상 테이블 이름. |
-| `order` | 입력 | `string` | 정렬 순서(오름차순/내림차순). |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 열 이름 <small>`columnName`</small> | 입력 | `string` | 대상 열 이름. |
+| 테이블 이름 <small>`tableName`</small> | 입력 | `string` | 대상 테이블 이름. |
+| 정렬 순서 <small>`order`</small> | 입력 | `string` | 정렬 순서(오름차순/내림차순). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 조회  <small>`LookUp`</small>
@@ -344,12 +344,12 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `range` | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
-| `value` | 입력 | `string` | 기록하거나 조회할 값. |
-| `output` | 출력 | `string` | 실행 결과를 담을 변수(출력). |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 범위 <small>`range`</small> | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
+| 값 <small>`value`</small> | 입력 | `string` | 기록하거나 조회할 값. |
+| 출력 <small>`output`</small> | 출력 | `string` | 실행 결과를 담을 변수(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 범위 중복 제거  <small>`RemoveDuplicatesRange`</small>
@@ -360,10 +360,10 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `range` | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 범위 <small>`range`</small> | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 테이블 범위 가져오기  <small>`GetTableRange`</small>
@@ -374,10 +374,10 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `table` | 입력 | `string` | 대상 테이블(DataTable 또는 테이블 이름). |
-| `range` | 출력 | `string` | 대상 셀 범위(예: A1:C10). |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 테이블 <small>`table`</small> | 입력 | `string` | 대상 테이블(DataTable 또는 테이블 이름). |
+| 범위 <small>`range`</small> | 출력 | `string` | 대상 셀 범위(예: A1:C10). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 피벗 테이블 생성  <small>`CreatePivotTable`</small>
@@ -388,12 +388,12 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `sourceTableName` | 입력 | `string` | 피벗의 원본이 되는 테이블 이름. |
-| `tableName` | 입력 | `string` | 대상 테이블 이름. |
-| `range` | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 원본 테이블 이름 <small>`sourceTableName`</small> | 입력 | `string` | 피벗의 원본이 되는 테이블 이름. |
+| 테이블 이름 <small>`tableName`</small> | 입력 | `string` | 대상 테이블 이름. |
+| 범위 <small>`range`</small> | 입력 | `string` | 대상 셀 범위(예: A1:C10). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 행 삽입/삭제  <small>`InsertDeleteRow`</small>
@@ -404,12 +404,12 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `Mode` | 입력 | `string` | 수행할 동작의 모드(삽입/삭제, 읽기 방향 등). |
-| `rowNo` | 입력 | `int` | 대상 행 번호. |
-| `position` | 입력 | `int` | 삽입하거나 읽을 대상 위치(행/열 번호). |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 모드 <small>`Mode`</small> | 입력 | `string` | 수행할 동작의 모드(삽입/삭제, 읽기 방향 등). |
+| 행 번호 <small>`rowNo`</small> | 입력 | `int` | 대상 행 번호. |
+| 위치 <small>`position`</small> | 입력 | `int` | 삽입하거나 읽을 대상 위치(행/열 번호). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 엑셀 행 읽기  <small>`ReadRow`</small>
@@ -420,11 +420,11 @@ Excel 워크북을 COM으로 직접 조작합니다(스코프 없이 파일 단�
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `autoSave` | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
-| `rowNo` | 입력 | `string` | 대상 행 번호. |
-| `position` | 입력 | `string` | 삽입하거나 읽을 대상 위치(행/열 번호). |
-| `filePath` | 입력 | `string` | 대상 엑셀 파일의 경로. |
-| `sheetName` | 입력 | `string` | 대상 시트 이름. |
-| `Mode` | 입력 | `string` | 수행할 동작의 모드(삽입/삭제, 읽기 방향 등). |
-| `result` | 출력 | `IEnumerable<object>` | 읽어온 결과(출력). |
+| 자동 저장 <small>`autoSave`</small> | 설정 | `bool` | 작업 후 워크북을 자동 저장할지 여부. |
+| 행 번호 <small>`rowNo`</small> | 입력 | `string` | 대상 행 번호. |
+| 위치 <small>`position`</small> | 입력 | `string` | 삽입하거나 읽을 대상 위치(행/열 번호). |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 대상 엑셀 파일의 경로. |
+| 시트 이름 <small>`sheetName`</small> | 입력 | `string` | 대상 시트 이름. |
+| 모드 <small>`Mode`</small> | 입력 | `string` | 수행할 동작의 모드(삽입/삭제, 읽기 방향 등). |
+| 결과 <small>`result`</small> | 출력 | `IEnumerable<object>` | 읽어온 결과(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |

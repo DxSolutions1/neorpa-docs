@@ -6,7 +6,7 @@
 
 데스크톱 애플리케이션 UI 자동화(셀렉터·이미지·OCR)와 파일·클립보드·프로세스·코드 실행 유틸.
 
-> 이 카테고리에는 34개의 액티비티가 있습니다. 각 액티비티의 **속성** 표는 소스에서 자동 추출되며(상속 포함), 표시명·설명은 리소스/설명 데이터에서 해석됩니다.
+> 이 카테고리에는 38개의 액티비티가 있습니다. 각 액티비티의 **속성** 표는 소스에서 자동 추출되며(상속 포함), 표시명·설명은 리소스/설명 데이터에서 해석됩니다.
 
 ## 창 연결 (스코프)  <small>`AttachWindowScope`</small>
 
@@ -53,6 +53,7 @@
 | 키 간 지연 <small>`DelayBetweenKeys`</small> | 입력 | `int` | 키 입력 사이에 둘 지연 시간(밀리초). |
 | 비우기 방식 <small>`ClearMethod`</small> | 입력 | `string` | 입력 전에 기존 필드 내용을 지우는 방식. |
 | 값 <small>`Value`</small> | 입력 | `string` | 대상 요소에 입력할 텍스트. |
+| 보호된 입력값 <small>`SecureValue`</small> | 입력 | `SecureString` | 보호된 값(SecureString). 자격 증명 가져오기(GetCredential)의 SecurePassword 출력을 연결하면 값이 워크플로 파일·로그에 남지 않습니다. 있으면 평문 인자보다 우선합니다. |
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 
 ## 클릭  <small>`Click`</small>
@@ -145,7 +146,7 @@ OCR/비전 하이브리드로 화면의 텍스트·요소를 찾아 클릭합니
 | 오프셋 X <small>`OffsetX`</small> | 입력 | `int` | 클릭 기준점에서 가로로 이동할 오프셋(픽셀). |
 | 오프셋 Y <small>`OffsetY`</small> | 입력 | `int` | 클릭 기준점에서 세로로 이동할 오프셋(픽셀). |
 
-## ImageExists  <small>`ImageExists`</small>
+## 이미지 존재 확인  <small>`ImageExists`</small>
 
 화면에 지정한 이미지가 존재하는지 확인해 참/거짓을 반환합니다.
 
@@ -221,9 +222,9 @@ OCR/비전 하이브리드로 화면의 텍스트·요소를 찾아 클릭합니
 | `Ctrl` | 설정 | `bool` | 단축키에 Ctrl 키를 함께 누를지 여부. |
 | `Shift` | 설정 | `bool` | 단축키에 Shift 키를 함께 누를지 여부. |
 | `Win` | 설정 | `bool` | 단축키에 Windows 키를 함께 누를지 여부. |
-| `SpecialKey` | 설정 | `bool` | 일반 문자 대신 특수 키(기능 키 등)를 입력할지 여부. |
-| `InputDelay` | 입력 | `int` | 각 키 입력 사이에 둘 지연 시간(밀리초). |
-| `Key` | 입력 | `string` | 누를 주 키. |
+| 특수 키 <small>`SpecialKey`</small> | 설정 | `bool` | 일반 문자 대신 특수 키(기능 키 등)를 입력할지 여부. |
+| 입력 지연 <small>`InputDelay`</small> | 입력 | `int` | 각 키 입력 사이에 둘 지연 시간(밀리초). |
+| 키 <small>`Key`</small> | 입력 | `string` | 누를 주 키. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 요소 존재 확인  <small>`ElementExists`</small>
@@ -235,7 +236,7 @@ OCR/비전 하이브리드로 화면의 텍스트·요소를 찾아 클릭합니
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
-| `TimeOut` | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
+| 타임아웃 <small>`TimeOut`</small> | 입력 | `int` | 대상 요소를 찾기까지 대기할 최대 시간(밀리초). |
 | 존재 여부 <small>`IsExist`</small> | 출력 | `bool` | 대상 요소의 존재 여부(출력). |
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 
@@ -288,7 +289,7 @@ OCR/비전 하이브리드로 화면의 텍스트·요소를 찾아 클릭합니
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `WorkflowFilePath` | 입력 | `string` | 호출할 워크플로(.xaml) 파일 경로. |
+| 워크플로 파일 경로 <small>`WorkflowFilePath`</small> | 입력 | `string` | 호출할 워크플로(.xaml) 파일 경로. |
 | 인자 <small>`Arguments`</small> | 입력 | `List<ArgumentInfo>` | 호출 대상에 전달하거나 로그에 추가할 인자 모음(이름-값). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
@@ -322,13 +323,13 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `CommandText` | 입력 | `String` | 실행할 PowerShell 명령 또는 스크립트 텍스트. |
-| `Input` | 입력 | `Collection<PSObject>` | PowerShell 파이프라인에 전달할 입력 개체 모음. |
-| `Parameter` | 입력 | `Dictionary<String,InArgument>` | PowerShell에 전달할 매개변수(이름-값). |
-| `PowerShellVariables` | 입력 | `Dictionary<String, Argument>` | 스크립트에서 사용할 PowerShell 변수(이름-값). |
-| `IsScript` | 설정 | `bool` | 명령을 단일 명령이 아닌 스크립트로 실행할지 여부. |
-| `TypeArgument` | 설정 | `Type` | 값의 데이터 형식(Type). |
-| `Output` | 출력 | `Collection<PSObject>` | 실행 결과 개체(출력). |
+| 명령 텍스트 <small>`CommandText`</small> | 입력 | `String` | 실행할 PowerShell 명령 또는 스크립트 텍스트. |
+| 입력 <small>`Input`</small> | 입력 | `Collection<PSObject>` | PowerShell 파이프라인에 전달할 입력 개체 모음. |
+| 매개 변수 <small>`Parameter`</small> | 입력 | `Dictionary<String,InArgument>` | PowerShell에 전달할 매개변수(이름-값). |
+| PowerShell 변수 <small>`PowerShellVariables`</small> | 입력 | `Dictionary<String, Argument>` | 스크립트에서 사용할 PowerShell 변수(이름-값). |
+| 스크립트 여부 <small>`IsScript`</small> | 설정 | `bool` | 명령을 단일 명령이 아닌 스크립트로 실행할지 여부. |
+| 형식 인수 <small>`TypeArgument`</small> | 설정 | `Type` | 값의 데이터 형식(Type). |
+| 출력 <small>`Output`</small> | 출력 | `Collection<PSObject>` | 실행 결과 개체(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## Python 실행  <small>`StartPython`</small>
@@ -340,7 +341,7 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
 | 파일 이름 <small>`FileName`</small> | 입력 | `string` | 대상 파일의 이름 또는 경로. |
-| `argument` | 입력 | `string` | 실행할 프로그램/스크립트에 전달할 명령줄 인수. |
+| 인수 <small>`argument`</small> | 입력 | `string` | 실행할 프로그램/스크립트에 전달할 명령줄 인수. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 경로 존재 여부 확인  <small>`PathExist`</small>
@@ -351,9 +352,9 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `Path` | 입력 | `string` | 존재 여부를 확인할 대상 경로. |
-| `PathType` | 설정 | `PathType` | 확인할 경로의 종류(파일/폴더). |
-| `Exists` | 출력 | `Boolean` | 지정한 경로의 존재 여부(출력). |
+| 경로 <small>`Path`</small> | 입력 | `string` | 존재 여부를 확인할 대상 경로. |
+| 경로 종류 <small>`PathType`</small> | 설정 | `PathType` | 확인할 경로의 종류(파일/폴더). |
+| 존재 여부 <small>`Exists`</small> | 출력 | `Boolean` | 지정한 경로의 존재 여부(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 파일 복사  <small>`CopyFile`</small>
@@ -364,9 +365,9 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `overwrite` | 설정 | `bool` | 대상이 이미 있으면 덮어쓸지 여부. |
-| `path` | 입력 | `string` | 대상 파일 또는 폴더의 경로. |
-| `destination` | 입력 | `string` | 복사/이동할 대상 경로. |
+| 덮어쓰기 <small>`overwrite`</small> | 설정 | `bool` | 대상이 이미 있으면 덮어쓸지 여부. |
+| 경로 <small>`path`</small> | 입력 | `string` | 대상 파일 또는 폴더의 경로. |
+| 대상 경로 <small>`destination`</small> | 입력 | `string` | 복사/이동할 대상 경로. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 파일 이동  <small>`MoveFile`</small>
@@ -377,9 +378,9 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `Overwrite` | 설정 | `bool` | 대상이 이미 있으면 덮어쓸지 여부. |
-| `path` | 입력 | `string` | 대상 파일 또는 폴더의 경로. |
-| `destination` | 입력 | `string` | 복사/이동할 대상 경로. |
+| 덮어쓰기 <small>`Overwrite`</small> | 설정 | `bool` | 대상이 이미 있으면 덮어쓸지 여부. |
+| 경로 <small>`path`</small> | 입력 | `string` | 대상 파일 또는 폴더의 경로. |
+| 대상 경로 <small>`destination`</small> | 입력 | `string` | 복사/이동할 대상 경로. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 파일 삭제  <small>`DeleteFile`</small>
@@ -390,58 +391,58 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `path` | 입력 | `string` | 대상 파일 또는 폴더의 경로. |
+| 경로 <small>`path`</small> | 입력 | `string` | 대상 파일 또는 폴더의 경로. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 텍스트 파일 읽기  <small>`ReadTextFile`</small>
 
-텍스트 파일 전체를 읽어 문자열로 돌려줍니다.
+텍스트 파일을 읽어 문자열로 돌려줍니다. 인코딩을 비우면 UTF-8(BOM 자동 인식)로 읽습니다.
 
 **속성**
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 읽을 파일 경로. 상대 경로는 프로젝트 폴더 기준. |
-| 인코딩 <small>`Encoding`</small> | 입력 | `string` | 인코딩 이름(`utf-8`, `euc-kr`, `utf-16` …). 비우면 UTF-8(BOM 자동 인식). |
-| 결과 <small>`Result`</small> | 출력 | `string` | 읽은 내용. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 읽을 텍스트 파일 경로. 상대 경로는 프로젝트 폴더 기준입니다. |
+| 인코딩 <small>`Encoding`</small> | 입력 | `string` | 파일 인코딩 이름(예: utf-8, euc-kr). 비우면 UTF-8. |
+| 결과 <small>`Result`</small> | 출력 | `string` | 읽은 텍스트 전체(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 텍스트 파일 쓰기  <small>`WriteTextFile`</small>
 
-텍스트를 파일에 씁니다. 파일이 있으면 **통째로 덮어쓰고**, 폴더가 없으면 만듭니다. 임시 파일에 다 쓴 뒤 바꿔 넣으므로 쓰는 도중 실패해도 반쪽짜리 파일이 남지 않습니다. UiPath의 Write Text File 에 해당합니다.
+텍스트를 파일에 씁니다. 파일이 있으면 통째로 덮어쓰고, 없는 폴더는 만듭니다. 임시 파일에 다 쓴 뒤 바꿔 넣으므로 쓰는 도중 실패해도 반쪽짜리 파일이 남지 않습니다. UiPath Write Text File 에 해당합니다.
 
 **속성**
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 쓸 파일 경로. 상대 경로는 프로젝트 폴더 기준. 카드의 […] 로 새 파일 이름을 고를 수 있습니다. |
-| 텍스트 <small>`Text`</small> | 입력 | `string` | 쓸 내용. |
-| 인코딩 <small>`Encoding`</small> | 입력 | `string` | 인코딩 이름(`utf-8`, `euc-kr`, `utf-16` …). 비우면 BOM 없는 UTF-8. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 쓸 파일 경로. 상대 경로는 프로젝트 폴더 기준입니다. […] 버튼으로 저장 대화상자를 열 수 있습니다. |
+| 텍스트 <small>`Text`</small> | 입력 | `string` | 파일에 쓸 텍스트. |
+| 인코딩 <small>`Encoding`</small> | 입력 | `string` | 인코딩 이름. 비우거나 utf-8 이면 BOM 없는 UTF-8, BOM 이 필요하면 utf-8-bom, 그 밖에 euc-kr 등 .NET 인코딩 이름. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 줄 추가  <small>`AppendLine`</small>
 
-텍스트 한 줄을 파일 **끝에 덧붙입니다**(끝에 줄 바꿈을 넣음). 파일이 없으면 만들고 폴더가 없으면 만듭니다. 실행 로그나 처리 결과를 누적할 때 씁니다. UiPath의 Append Line 에 해당합니다.
+파일 끝에 텍스트 한 줄(끝에 줄 바꿈)을 덧붙입니다. 파일이 없으면 만듭니다. 실행 로그·결과 기록을 쌓을 때 씁니다. UiPath Append Line 에 해당합니다.
 
 **속성**
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 덧붙일 파일 경로. 상대 경로는 프로젝트 폴더 기준. |
-| 텍스트 <small>`Text`</small> | 입력 | `string` | 덧붙일 한 줄. 줄 바꿈은 자동으로 붙습니다. |
-| 인코딩 <small>`Encoding`</small> | 입력 | `string` | 인코딩 이름. 비우면 BOM 없는 UTF-8. 이미 있는 파일에 덧붙일 때는 그 파일의 인코딩과 맞추세요. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 덧붙일 파일 경로. 상대 경로는 프로젝트 폴더 기준입니다. |
+| 텍스트 <small>`Text`</small> | 입력 | `string` | 덧붙일 한 줄 텍스트(줄 바꿈은 자동으로 붙습니다). |
+| 인코딩 <small>`Encoding`</small> | 입력 | `string` | 인코딩 이름. 비우거나 utf-8 이면 BOM 없는 UTF-8, BOM 이 필요하면 utf-8-bom. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 파일 생성  <small>`CreateFile`</small>
 
-빈 파일을 만듭니다. 폴더가 없으면 만들고, 이미 있는 파일은 **덮어쓰기**가 켜져 있을 때만 비웁니다. UiPath의 Create File 에 해당합니다.
+빈 파일을 만듭니다. 이미 있으면 덮어쓰기 옵션이 켜졌을 때만 비우고, 꺼져 있으면 그대로 둡니다. UiPath Create File 에 해당합니다(폴더+이름 대신 전체 경로 하나).
 
 **속성**
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 만들 파일 경로. 상대 경로는 프로젝트 폴더 기준. |
-| 덮어쓰기 <small>`Overwrite`</small> | 설정 | `bool` | 이미 있는 파일을 비울지 여부. 기본은 그대로 둡니다. |
+| 파일 경로 <small>`filePath`</small> | 입력 | `string` | 만들 파일 경로. 없는 폴더는 함께 만듭니다. |
+| 덮어쓰기 <small>`Overwrite`</small> | 설정 | `bool` | 이미 있는 파일을 비울지 여부(기본 false = 있는 파일 그대로). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 프로세스 시작  <small>`StartProcess`</small>
@@ -453,7 +454,7 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
 | 파일 이름 <small>`FileName`</small> | 입력 | `string` | 대상 파일의 이름 또는 경로. |
-| `argument` | 입력 | `string` | 실행할 프로그램/스크립트에 전달할 명령줄 인수. |
+| 인수 <small>`argument`</small> | 입력 | `string` | 실행할 프로그램/스크립트에 전달할 명령줄 인수. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 창 최대화  <small>`MaximizeWindow`</small>
@@ -490,7 +491,7 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `text` | 출력 | `string` | 클립보드로 주고받을 텍스트. |
+| 텍스트 <small>`text`</small> | 출력 | `string` | 클립보드로 주고받을 텍스트. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 클립보드로 설정  <small>`SetToClipBoard`</small>
@@ -501,7 +502,7 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `text` | 입력 | `string` | 클립보드로 주고받을 텍스트. |
+| 텍스트 <small>`text`</small> | 입력 | `string` | 클립보드로 주고받을 텍스트. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 폴더 생성  <small>`CreateDirectory`</small>
@@ -512,7 +513,7 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `path` | 입력 | `string` | 대상 파일 또는 폴더의 경로. |
+| 경로 <small>`path`</small> | 입력 | `string` | 대상 파일 또는 폴더의 경로. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 폴더 삭제  <small>`DeleteDirectory`</small>
@@ -523,7 +524,7 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `path` | 입력 | `string` | 대상 파일 또는 폴더의 경로. |
+| 경로 <small>`path`</small> | 입력 | `string` | 대상 파일 또는 폴더의 경로. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 항목 삭제(파일/디렉토리)  <small>`DeleteFileOrDirectory`</small>
@@ -534,7 +535,7 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `path` | 입력 | `string` | 삭제할 파일 또는 폴더 경로. 상대 경로는 프로젝트 루트 기준으로 해석됩니다. |
+| 경로 <small>`path`</small> | 입력 | `string` | 삭제할 파일 또는 폴더 경로. 상대 경로는 프로젝트 루트 기준으로 해석됩니다. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 주석 처리  <small>`CommentOut`</small>
@@ -545,4 +546,4 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `Note` | 설정 | `string` | 액티비티에 남기는 메모(주석)로, 실행에는 영향을 주지 않는다. |
+| 메모 <small>`Note`</small> | 설정 | `string` | 액티비티에 남기는 메모(주석)로, 실행에는 영향을 주지 않는다. |

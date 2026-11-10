@@ -16,10 +16,11 @@
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `conn` | 입력 | `string` | 데이터베이스 연결 문자열. |
-| `DBType` | 설정 | `DBType` | 연결할 데이터베이스의 종류. |
-| `query` | 입력 | `string` | 실행할 SQL 쿼리. |
-| `DataTable` | 출력 | `DataTable` | 작업 대상이 되는 DataTable. |
+| 연결 문자열 <small>`conn`</small> | 입력 | `string` | 데이터베이스 연결 문자열. |
+| 보호된 연결 문자열 <small>`SecureConn`</small> | 입력 | `SecureString` | 보호된 연결 문자열(SecureString). 자격 증명 관리자에 연결 문자열 전체를 비밀번호로 저장해 두고 자격 증명 가져오기(GetCredential)로 읽어 연결합니다. 있으면 평문 연결 문자열(conn)보다 우선합니다. |
+| DB 종류 <small>`DBType`</small> | 설정 | `DBType` | 연결할 데이터베이스의 종류. |
+| 쿼리 <small>`query`</small> | 입력 | `string` | 실행할 SQL 쿼리. |
+| 데이터 테이블 <small>`DataTable`</small> | 출력 | `DataTable` | 작업 대상이 되는 DataTable. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## DB 쿼리 실행  <small>`DBQueryExecute`</small>
@@ -30,7 +31,8 @@
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `conn` | 입력 | `string` | 데이터베이스 연결 문자열. |
-| `DBType` | 설정 | `DBType` | 연결할 데이터베이스의 종류. |
-| `query` | 입력 | `string` | 실행할 SQL 쿼리. |
+| 연결 문자열 <small>`conn`</small> | 입력 | `string` | 데이터베이스 연결 문자열. |
+| 보호된 연결 문자열 <small>`SecureConn`</small> | 입력 | `SecureString` | 보호된 연결 문자열(SecureString). 자격 증명 관리자에 연결 문자열 전체를 비밀번호로 저장해 두고 자격 증명 가져오기(GetCredential)로 읽어 연결합니다. 있으면 평문 연결 문자열(conn)보다 우선합니다. |
+| DB 종류 <small>`DBType`</small> | 설정 | `DBType` | 연결할 데이터베이스의 종류. |
+| 쿼리 <small>`query`</small> | 입력 | `string` | 실행할 SQL 쿼리. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |

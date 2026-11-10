@@ -86,6 +86,7 @@ class ToolboxItem:
     typeof_text: str          # typeof(...) 안의 원문 (예: System.Activities.Statements.ForEach<>)
     fallback_label: str | None
     order: int
+    hidden: bool = False      # ToolboxManager.HiddenActivities — 툴박스에서 숨겼지만 기존 워크플로·도움말(F1)은 그대로 쓴다
 
     @property
     def is_generic(self) -> bool:
@@ -251,7 +252,10 @@ _ITEM_RE = re.compile(r'CreateToolboxItem\(\s*typeof\(([^()]+?)\)\s*(?:,\s*"([^"
 def parse_toolbox(source: Path) -> list[ToolboxItem]:
     text = (source / TOOLBOX_FILE).read_text(encoding="utf-8-sig")
     clean = strip_comments_and_strings(text)
-    start = clean.find("void AddCategories(")
+    # 2026-10 이후 실제 등록은 AddCategoriesCore() 에 있고 AddCategories() 는 그것을 부르는 짧은 래퍼다. 둘 다 찾아 본다.
+    start = clean.find("void AddCategoriesCore(")
+    if start == -1:
+        start = clean.find("void AddCategories(")
     if start == -1:
         raise RuntimeError("AddCategories() 를 찾을 수 없습니다: " + str(source / TOOLBOX_FILE))
     body_open = clean.index("{", start)
@@ -268,6 +272,21 @@ def parse_toolbox(source: Path) -> list[ToolboxItem]:
         tools_close = match_brace(body_clean, tools_open)
         for im in _ITEM_RE.finditer(body_raw[tools_open:tools_close]):
             items.append(ToolboxItem(cat_name, im.group(1).strip(), im.group(2), order))
+            order += 1
+
+    # 툴박스에서 숨긴 액티비티(HiddenActivities 사전: [typeof(X)] = "카테고리"). 이미 놓인 워크플로는 계속 쓰고
+    # 도움말(F1)도 그 카테고리 페이지의 앵커를 열므로 문서에서 빼면 링크가 깨진다.
+    hidden_start = clean.find("HiddenActivities")
+    if hidden_start != -1:
+        hidden_open = clean.index("{", hidden_start)
+        hidden_close = match_brace(clean, hidden_open)
+        hidden_clean = clean[hidden_open:hidden_close]
+        hidden_raw = text[hidden_open:hidden_close]
+        for m in re.finditer(r'\[typeof\(([^()]+?)\)\]\s*=\s*"', hidden_raw):
+            if '"' not in hidden_clean[m.start():m.end()]:
+                continue
+            name_end = hidden_raw.index('"', m.end())
+            items.append(ToolboxItem(hidden_raw[m.end():name_end], m.group(1).strip(), None, order, hidden=True))
             order += 1
     return items
 
@@ -443,6 +462,17 @@ def collect_props(index: dict[tuple[str, str, int], ClassInfo], cls: ClassInfo,
 # resx / 버전
 # --------------------------------------------------------------------------------------
 
+def _ko_get(ko: dict[str, str], key: str) -> str | None:
+    """resx 키를 정확히, 없으면 대소문자 무시로 찾는다(런타임 ResourceManager.IgnoreCase 와 같음)."""
+    if key in ko:
+        return ko[key]
+    lowered = key.lower()
+    for k, v in ko.items():
+        if k.lower() == lowered:
+            return v
+    return None
+
+
 def load_resx(paths: Iterable[Path]) -> dict[str, str]:
     """앞선 파일이 우선(디자이너 resx → 액티비티 resx). 런타임 GlobalResourceManager 와 같은 순서."""
     out: dict[str, str] = {}
@@ -583,11 +613,12 @@ def build_model(source: Path, data: dict, findings: list[Finding]) -> Model:
                     text = ""
                 prop_desc[p.name] = str(text).strip()
                 # 라벨: 캔버스 디자이너(TranslateExtension)와 속성 그리드([CustomDisplayName]) 모두 같은 키를 쓴다.
-                label = ko.get(f"{p.name}_Property_DisplayName") or p.display_name_attr
+                # 런타임 MeetupResourceManager 는 IgnoreCase 라 `Text` 가 `text_Property_DisplayName` 으로도 풀린다 — 같은 규칙.
+                label = _ko_get(ko, f"{p.name}_Property_DisplayName") or p.display_name_attr
                 if label and label.replace(" ", "").lower() == p.name.lower():
                     label = None  # 라벨이 속성명과 같으면 중복 표기하지 않음
                 prop_label[p.name] = label
-                if p.custom_display_name and f"{p.name}_Property_DisplayName" not in ko:
+                if p.custom_display_name and _ko_get(ko, f"{p.name}_Property_DisplayName") is None:
                     findings.append(Finding("WARN", cat_name, type_id,
                                             f"속성 `{p.name}` 의 한국어 리소스 키 {p.name}_Property_DisplayName 없음(원본 resx 보완 필요)"))
             for n in prop_defs:
@@ -637,8 +668,10 @@ def _cell(text: str) -> str:
 
 def render_category(cat: dict, acts: list[Activity]) -> str:
     lines: list[str] = [HEADER_COMMENT, "", "", f"# {cat['title']}", "", cat["intro"].strip(), ""]
+    hidden_count = sum(1 for a in acts if a.item.hidden)
+    hidden_note = f"(툴박스에서 숨긴 {hidden_count}개 포함) " if hidden_count else ""
     lines.append(
-        f"> 이 카테고리에는 {len(acts)}개의 액티비티가 있습니다. 각 액티비티의 **속성** 표는 소스에서 "
+        f"> 이 카테고리에는 {len(acts)}개의 액티비티가 있습니다{hidden_note}. 각 액티비티의 **속성** 표는 소스에서 "
         "자동 추출되며(상속 포함), 표시명·설명은 리소스/설명 데이터에서 해석됩니다."
     )
     lines.append("")
@@ -647,6 +680,10 @@ def render_category(cat: dict, acts: list[Activity]) -> str:
     for a in acts:
         lines.append(f"## {html.escape(a.display, quote=False)}  <small>`{a.code}`</small>")
         lines.append("")
+        if a.item.hidden:
+            lines.append('!!! note "툴박스에서 숨김"')
+            lines.append("    이 액티비티는 툴박스에 더 이상 보이지 않습니다. 이미 워크플로에 놓인 것은 그대로 실행되며 아래 설명이 적용됩니다.")
+            lines.append("")
         lines.append(a.desc or "_(설명 준비 중)_")
         lines.append("")
         lines.append("**속성**")

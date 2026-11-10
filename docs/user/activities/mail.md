@@ -17,14 +17,15 @@ SMTP로 메일을 전송합니다(첨부 지원).
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
 | 암호 <small>`logonPassword`</small> | 입력 | `string` | 메일 발송에 사용할 로그인 암호. |
+| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 자격 증명 가져오기(GetCredential)의 SecurePassword 출력을 연결합니다. 있으면 평문 비밀번호보다 우선합니다. |
 | 이메일 <small>`logonEmail`</small> | 입력 | `string` | 메일 발송에 사용할 로그인 계정. |
 | 발신 이메일 <small>`senderEmail`</small> | 입력 | `string` | 보내는 사람의 메일 주소. |
 | 발신 이름 <small>`senderName`</small> | 입력 | `string` | 보내는 사람의 표시 이름. |
 | 수신 이메일 <small>`receiverEmail`</small> | 입력 | `string` | 메일 수신자 주소. |
 | 참조 <small>`ccEmails`</small> | 입력 | `string` | 메일 참조(CC) 수신자 주소. |
 | 숨은 참조 <small>`bccEmails`</small> | 입력 | `string` | 메일 숨은 참조(BCC) 수신자 주소. |
-| `isBodyHtml` | 입력 | `bool` | 본문을 HTML 형식으로 보낼지 여부. |
-| `continueOnError` | 입력 | `bool` | 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
+| 본문 HTML 여부 <small>`isBodyHtml`</small> | 입력 | `bool` | 본문을 HTML 형식으로 보낼지 여부. |
+| 오류 무시 <small>`continueOnError`</small> | 입력 | `bool` | 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 | 제목 <small>`subject`</small> | 입력 | `string` | 메일 제목. |
 | 본문 <small>`body`</small> | 입력 | `string` | 메일 본문 내용. |
 | 첨부 파일 <small>`staticAttachments`</small> | 입력 | `IEnumerable<string>` | 미리 지정한 고정 첨부 파일 경로 목록. |
@@ -33,7 +34,7 @@ SMTP로 메일을 전송합니다(첨부 지원).
 | 포트 <small>`port`</small> | 입력 | `int` | 메일 서버 포트 번호. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
-## POP3Mail  <small>`POP3Mail`</small>
+## 메일 받기 (POP3)  <small>`POP3Mail`</small>
 
 POP3 서버에 접속해 메일을 수신하고 메시지 목록으로 가져옵니다.
 
@@ -44,6 +45,7 @@ POP3 서버에 접속해 메일을 수신하고 메시지 목록으로 가져옵
 | 타임아웃(ms) <small>`TimeoutMS`</small> | 입력 | `int` | 서버 연결을 기다릴 최대 시간(밀리초). |
 | 이메일 <small>`Email`</small> | 입력 | `string` | 메일 로그인 계정(메일 주소). |
 | 암호 <small>`Password`</small> | 입력 | `string` | 접근에 사용할 암호(파일 또는 메일 계정). |
+| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 자격 증명 가져오기(GetCredential)의 SecurePassword 출력을 연결합니다. 있으면 평문 비밀번호보다 우선합니다. |
 | 메시지 삭제 <small>`DeleteMessages`</small> | 입력 | `bool` | 가져온 뒤 서버에서 메일을 삭제할지 여부. |
 | 보안 연결 <small>`SecureConnection`</small> | 입력 | `string` | 메일 서버 보안 연결 방식(SSL/TLS 등). |
 | 상위 메일 개수 <small>`Top`</small> | 입력 | `int` | 가져올 최대 메일 개수. |

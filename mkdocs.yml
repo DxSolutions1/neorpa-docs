@@ -76,9 +76,11 @@ nav:
           - Excel Scope: user/activities/excel-scope.md
           - DataTable: user/activities/datatable.md
           - Mail: user/activities/mail.md
+          - Web (HTTP 요청 · JSON): user/activities/web.md
           - System (구조 · 프로세스): user/activities/system.md
           - DB: user/activities/db.md
           - OutLook: user/activities/outlook.md
+          - 보안 (자격 증명): user/activities/security.md
       - 원격 데스크톱 자동화: user/remote-desktop.md
       - 문제 해결: user/troubleshooting.md
   - 다운로드: downloads.md

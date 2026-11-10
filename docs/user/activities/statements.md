@@ -88,7 +88,7 @@ Catch 블록에서 잡은 예외를 다시 던집니다.
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `Duration` | 입력 | `TimeSpan` | 대기할 시간(TimeSpan 형식). |
+| 지속 시간 <small>`Duration`</small> | 입력 | `TimeSpan` | 대기할 시간(TimeSpan 형식). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 분기 (Switch)  <small>`Switch`</small>
@@ -99,7 +99,8 @@ Catch 블록에서 잡은 예외를 다시 던집니다.
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `SwitchExpression` | 입력 | `object` | 분기를 결정하는 판단 식으로, 각 케이스 값과 비교된다. |
+| 선택한 형식 <small>`SelectedType`</small> | 설정 | `SwitchType` | 비교에 쓸 값의 형식(문자열·정수 등). 식의 값과 케이스 값을 이 형식으로 비교합니다. |
+| 스위치 식 <small>`SwitchExpression`</small> | 입력 | `object` | 분기를 결정하는 판단 식으로, 각 케이스 값과 비교된다. |
 
 ## ForEach&lt;T&gt; (WF 표준)  <small>`ForEach<T>`</small>
 
@@ -118,8 +119,8 @@ Windows Workflow Foundation 표준 For Each 액티비티입니다. NeoRPA 전용
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `Collection` | 입력 | `object` | 반복 처리할 대상 컬렉션. |
-| `Index` | 출력 | `int` | 현재 반복 항목의 인덱스(출력, 0부터 시작). |
+| 컬렉션 <small>`Collection`</small> | 입력 | `object` | 반복 처리할 대상 컬렉션. |
+| 인덱스 <small>`Index`</small> | 출력 | `int` | 현재 반복 항목의 인덱스(출력, 0부터 시작). |
 
 ## For Each &lt;T&gt;  <small>`ForEach_T<T>`</small>
 
@@ -129,10 +130,10 @@ Windows Workflow Foundation 표준 For Each 액티비티입니다. NeoRPA 전용
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `Collection` | 입력 | `object` | 반복 처리할 대상 컬렉션. 각 항목은 실행 시 T 형식으로 변환됩니다. |
-| `Index` | 출력 | `int` | 현재 반복 항목의 인덱스(출력, 0부터 시작). |
+| 컬렉션 <small>`Collection`</small> | 입력 | `object` | 반복 처리할 대상 컬렉션. 각 항목은 실행 시 T 형식으로 변환됩니다. |
+| 인덱스 <small>`Index`</small> | 출력 | `int` | 현재 반복 항목의 인덱스(출력, 0부터 시작). |
 
-## RetryScope  <small>`RetryScope`</small>
+## 재시도 범위  <small>`RetryScope`</small>
 
 본문이 성공하거나 지정한 횟수에 도달할 때까지 재시도합니다.
 
@@ -140,15 +141,15 @@ Windows Workflow Foundation 표준 For Each 액티비티입니다. NeoRPA 전용
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `NumberOfRetries` | 입력 | `int` | 실패 시 시도할 최대 재시도 횟수. |
-| `RetryInterval` | 입력 | `TimeSpan` | 재시도 사이에 대기할 간격(TimeSpan 형식). |
+| 재시도 횟수 <small>`NumberOfRetries`</small> | 입력 | `int` | 실패 시 시도할 최대 재시도 횟수. |
+| 재시도 간격 <small>`RetryInterval`</small> | 입력 | `TimeSpan` | 재시도 사이에 대기할 간격(TimeSpan 형식). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
-| `AttemptCount` | 출력 | `int` | 실제로 수행된 재시도 횟수(출력). |
-| `Succeeded` | 출력 | `bool` | 재시도 끝에 성공했는지 여부(출력). |
-| `LastFailureType` | 출력 | `string` | 마지막 실패의 예외 형식 이름(출력). |
-| `LastExceptionMessage` | 출력 | `string` | 마지막 시도에서 발생한 예외 메시지(출력). |
+| 시도 횟수 <small>`AttemptCount`</small> | 출력 | `int` | 실제로 수행된 재시도 횟수(출력). |
+| 성공 여부 <small>`Succeeded`</small> | 출력 | `bool` | 재시도 끝에 성공했는지 여부(출력). |
+| 마지막 실패 유형 <small>`LastFailureType`</small> | 출력 | `string` | 마지막 실패의 예외 형식 이름(출력). |
+| 마지막 예외 메시지 <small>`LastExceptionMessage`</small> | 출력 | `string` | 마지막 시도에서 발생한 예외 메시지(출력). |
 
-## While  <small>`While`</small>
+## 반복 (While)  <small>`While`</small>
 
 조건이 참인 동안 본문을 반복 실행합니다(선검사).
 
@@ -156,10 +157,10 @@ Windows Workflow Foundation 표준 For Each 액티비티입니다. NeoRPA 전용
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `Condition` | 설정 | `Activity<bool>` | 반복을 계속할지 판단하는 조건식(결과가 참인 동안 반복). |
-| `IterationCount` | 출력 | `int` | 반복이 수행된 총 횟수(출력). |
+| 조건 <small>`Condition`</small> | 설정 | `Activity<bool>` | 반복을 계속할지 판단하는 조건식(결과가 참인 동안 반복). |
+| 반복 횟수 <small>`IterationCount`</small> | 출력 | `int` | 반복이 수행된 총 횟수(출력). |
 
-## DoWhile  <small>`DoWhile`</small>
+## 반복 (Do While)  <small>`DoWhile`</small>
 
 본문을 먼저 실행한 뒤 조건이 참인 동안 반복합니다(후검사).
 
@@ -167,8 +168,8 @@ Windows Workflow Foundation 표준 For Each 액티비티입니다. NeoRPA 전용
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `Condition` | 설정 | `Activity<bool>` | 반복을 계속할지 판단하는 조건식(결과가 참인 동안 반복). |
-| `IterationCount` | 출력 | `int` | 반복이 수행된 총 횟수(출력). |
+| 조건 <small>`Condition`</small> | 설정 | `Activity<bool>` | 반복을 계속할지 판단하는 조건식(결과가 참인 동안 반복). |
+| 반복 횟수 <small>`IterationCount`</small> | 출력 | `int` | 반복이 수행된 총 횟수(출력). |
 
 ## 중단  <small>`Break`</small>
 

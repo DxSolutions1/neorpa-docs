@@ -79,8 +79,8 @@
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `Message` | 입력 | `string` | 기록할 로그 메시지 내용. |
-| `LogType` | 입력 | `string` | 기록할 로그의 수준: Info, Warning, Error, Fatal, Trace 중 하나. |
+| 메시지 <small>`Message`</small> | 입력 | `string` | 기록할 로그 메시지 내용. |
+| 로그 종류 <small>`LogType`</small> | 입력 | `string` | 기록할 로그의 수준: Info, Warning, Error, Fatal, Trace 중 하나. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 프로세스 종료  <small>`KillProcess`</small>
@@ -91,8 +91,8 @@
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `process` | 입력 | `Process` | 종료할 대상 프로세스. |
-| `processName` | 입력 | `string` | 종료할 대상 프로세스 이름. |
+| 프로세스 <small>`process`</small> | 입력 | `Process` | 종료할 대상 프로세스. |
+| 프로세스 이름 <small>`processName`</small> | 입력 | `string` | 종료할 대상 프로세스 이름. |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
 ## 프로세스 목록 가져오기  <small>`GetProcesses`</small>
@@ -103,10 +103,10 @@
 
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
-| `Processes` | 출력 | `Collection<Process>` | 조회된 프로세스 목록(출력). |
+| 프로세스 목록 <small>`Processes`</small> | 출력 | `Collection<Process>` | 조회된 프로세스 목록(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
-## AddLogFields  <small>`AddLogFields`</small>
+## 로그 필드 추가  <small>`AddLogFields`</small>
 
 이후 실행 로그(JSON)에 사용자 정의 필드를 덧붙입니다. 다음 호출 시 새 값으로 교체됩니다.
 
