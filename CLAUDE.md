@@ -66,6 +66,8 @@ Windows 콘솔에서 한글이 깨지면 `$env:PYTHONUTF8=1`.
 - 표시명: yaml `display` → (제네릭) 툴박스 폴백 라벨 → ko resx `{Type}_DisplayName` → 폴백 → 타입명. 제네릭 타입은 런타임에서 resx 를 못 찾으므로 문서도 폴백을 쓴다.
 - 속성 라벨: ko resx `{Prop}_Property_DisplayName` → `[DisplayName]` → 없으면 코드명만. 라벨이 코드명과 같으면 생략.
 - 같은 카테고리에 같은 단순명이 둘이면 `meta.type_id_overrides` 로 별도 ID(예: 표준 `ForEach<>` → `ForEach_WF`).
+- 타입을 정해 두지 않은 인수(`OutArgument`/`InArgument`, 예: `AiInvoke.Result`)는 방향을 그대로 쓰고 타입 칸에 `변수의 타입` 을 적는다(연결한 변수의 타입을 따르는 인수).
+- 표로 담기지 않는 설명(사전 준비·쓰는 순서·문제 해결)은 yaml 의 카테고리·액티비티 `notes`(마크다운 블록)에 쓴다. 카테고리 `notes` 는 소개 아래, 액티비티 `notes` 는 속성 표 아래에 그대로 붙는다(`ai` 카테고리 참고). 헤딩은 `###` 와 `{ #kebab-slug }`.
 - 한계: 정규식 파서(`#if` 무시, 식 본문 속성 미지원). 기반 클래스가 3개 라이브러리 밖이면 그 위는 수집하지 않고 WARN.
 
 ## 문체·형식 규약

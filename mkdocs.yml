@@ -77,6 +77,7 @@ nav:
           - DataTable: user/activities/datatable.md
           - Mail: user/activities/mail.md
           - Web (HTTP 요청 · JSON): user/activities/web.md
+          - AI (AI 호출): user/activities/ai.md
           - System (구조 · 프로세스): user/activities/system.md
           - DB: user/activities/db.md
           - OutLook: user/activities/outlook.md

@@ -305,6 +305,9 @@ _PROP_RE = re.compile(
     r"(?P<type>[^;{}=]*?)\s+(?P<name>\w+)\s*\{\s*(?:get|set)\b"
 )
 _ARG_RE = re.compile(r"^(In|Out|InOut)Argument<(.+)>$")
+# 타입을 정해 두지 않은 인수(WF Assign 과 같은 방식 — AI 호출의 결과): 연결한 변수의 타입을 따른다.
+_UNTYPED_ARG_RE = re.compile(r"^(In|Out|InOut)Argument$")
+UNTYPED_ARG_LABEL = "변수의 타입"
 _ACT_RE = re.compile(r"^Activity<(.+)>$")
 
 
@@ -357,8 +360,11 @@ def _parse_props(body_raw: str, body_clean: str, class_name: str) -> list[PropIn
             continue
         kind, inner = "Plain", type_text
         am = _ARG_RE.match(type_text)
+        um = _UNTYPED_ARG_RE.match(type_text)
         if am:
             kind, inner = am.group(1), am.group(2)
+        elif um:
+            kind, inner = um.group(1), UNTYPED_ARG_LABEL
         elif _ACT_RE.match(type_text):
             kind, inner = "Activity", type_text
         cat = re.search(r'\[Category\("([^"]*)"\)\]', attrs_raw)

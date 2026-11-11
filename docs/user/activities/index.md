@@ -4,7 +4,7 @@
 
 # 액티비티 사용법
 
-13개 카테고리 · 178개 액티비티를 툴박스 순서대로 정리합니다. 표시명·속성 표는 NeoRPA 소스에서 자동 추출되고, 설명은 `data/activities.yaml`에서 관리됩니다.
+14개 카테고리 · 179개 액티비티를 툴박스 순서대로 정리합니다. 표시명·속성 표는 NeoRPA 소스에서 자동 추출되고, 설명은 `data/activities.yaml`에서 관리됩니다.
 
 ## 카테고리 (툴박스 기준)
 
@@ -19,6 +19,7 @@
 | [DataTable](datatable.md) | 15 | 데이터테이블 조작 |
 | [Mail](mail.md) | 2 | 메일 송수신(SMTP/POP3) |
 | [Web (HTTP 요청 · JSON)](web.md) | 5 | REST API 호출과 JSON 읽기·만들기 |
+| [AI (AI 호출)](ai.md) | 1 | 이 PC 에 설치된 AI CLI(Claude Code · Codex · Gemini)에 일을 맡기고 결과를 변수로 받기 |
 | [System (구조 · 프로세스)](system.md) | 12 | WF 구조·프로세스 유틸 |
 | [DB](db.md) | 2 | 데이터베이스 질의 |
 | [OutLook](outlook.md) | 3 | Outlook 메일 |
