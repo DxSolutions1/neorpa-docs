@@ -4,7 +4,7 @@
 
 # 액티비티 사용법
 
-16개 카테고리 · 199개 액티비티를 툴박스 순서대로 정리합니다. 표시명·속성 표는 NeoRPA 소스에서 자동 추출되고, 설명은 `data/activities.yaml`에서 관리됩니다.
+16개 카테고리 · 202개 액티비티를 툴박스 순서대로 정리합니다. 표시명·속성 표는 NeoRPA 소스에서 자동 추출되고, 설명은 `data/activities.yaml`에서 관리됩니다.
 
 ## 카테고리 (툴박스 기준)
 
@@ -17,7 +17,7 @@
 | [Excel WorkBook](excel-workbook.md) | 28 | COM 워크북 직접 조작 |
 | [Excel Scope](excel-scope.md) | 33 | 스코프 기반 Excel |
 | [DataTable](datatable.md) | 16 | 데이터테이블 조작 · CSV 읽기·쓰기 |
-| [Mail](mail.md) | 2 | 메일 송수신(SMTP/POP3) |
+| [Mail](mail.md) | 5 | 메일 보내기(SMTP)·받기(IMAP/POP3)·첨부 저장 |
 | [Web (HTTP 요청 · JSON)](web.md) | 5 | REST API 호출과 JSON 읽기·만들기 |
 | [Text (문자열 · 정규식 · 날짜)](text.md) | 11 | 텍스트 찾기·바꾸기·나누기·합치기와 날짜 변환 |
 | [PDF (텍스트 읽기 · 페이지 · 합치기)](pdf.md) | 5 | PDF 텍스트 읽기(스캔본은 OCR)·페이지 수·페이지 추출·합치기·이미지로 내보내기 |
