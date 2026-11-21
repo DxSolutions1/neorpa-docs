@@ -78,6 +78,7 @@ nav:
           - Mail: user/activities/mail.md
           - Web (HTTP 요청 · JSON): user/activities/web.md
           - Text (문자열 · 정규식 · 날짜): user/activities/text.md
+          - PDF (텍스트 읽기 · 페이지 · 합치기): user/activities/pdf.md
           - AI (AI 호출): user/activities/ai.md
           - System (구조 · 프로세스): user/activities/system.md
           - DB: user/activities/db.md
