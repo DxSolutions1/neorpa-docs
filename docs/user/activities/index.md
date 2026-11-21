@@ -4,7 +4,7 @@
 
 # 액티비티 사용법
 
-15개 카테고리 · 190개 액티비티를 툴박스 순서대로 정리합니다. 표시명·속성 표는 NeoRPA 소스에서 자동 추출되고, 설명은 `data/activities.yaml`에서 관리됩니다.
+15개 카테고리 · 192개 액티비티를 툴박스 순서대로 정리합니다. 표시명·속성 표는 NeoRPA 소스에서 자동 추출되고, 설명은 `data/activities.yaml`에서 관리됩니다.
 
 ## 카테고리 (툴박스 기준)
 
@@ -12,7 +12,7 @@
 |---|---:|---|
 | [Chrome (전용)](chrome.md) | 10 | 전용 크롬(CDP) 자동화 |
 | [Chrome (일반)](chrome-native.md) | 8 | 사용자 프로필 크롬(네이티브 메시징) |
-| [Control (데스크톱 UI · 파일 · 프로세스)](control.md) | 38 | 데스크톱 UI 자동화 + 파일·프로세스·클립보드·코드 실행 |
+| [Control (데스크톱 UI · 파일 · 프로세스)](control.md) | 40 | 데스크톱 UI 자동화 + 파일·프로세스·클립보드·코드 실행 |
 | [Statements (흐름 제어)](statements.md) | 19 | 흐름 제어(조건·반복·예외·시퀀스) |
 | [Excel WorkBook](excel-workbook.md) | 28 | COM 워크북 직접 조작 |
 | [Excel Scope](excel-scope.md) | 33 | 스코프 기반 Excel |
