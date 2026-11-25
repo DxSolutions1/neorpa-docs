@@ -46,7 +46,7 @@ Excel Scope 안에서 외부 VBA 파일을 불러와 지정한 함수를 실행�
 | 편집 암호 <small>`EditPassword`</small> | 입력 | `string` | 엑셀 파일의 편집(쓰기) 암호. |
 | 워크북 경로 <small>`WorkbookPath`</small> | 입력 | `string` | 열 워크북 파일의 경로. |
 | 암호 <small>`Password`</small> | 입력 | `string` | 접근에 사용할 암호(파일 또는 메일 계정). |
-| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 자격 증명 가져오기(GetCredential)의 SecurePassword 출력을 연결합니다. 있으면 평문 비밀번호보다 우선합니다. |
+| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 속성 창의 열쇠 버튼으로 자격 증명을 고르면 워크플로 파일에는 자격 증명 이름만 남습니다. 자격 증명 가져오기(GetCredential)의 SecurePassword 출력(변수)을 연결해도 됩니다. 있으면 평문 비밀번호보다 우선합니다. |
 
 ## 엑셀 쓰기  <small>`ExcelWrite`</small>
 

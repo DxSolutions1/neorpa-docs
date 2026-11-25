@@ -126,7 +126,7 @@ URL을 브라우저로 열고, 그 브라우저를 대상으로 하는 자식 �
 | 필드 비우기 <small>`EmptyField`</small> | 입력 | `bool` | 입력하기 전에 대상 필드를 비울지 여부. |
 | 타이핑 전 클릭 <small>`ClickBeforeTyping`</small> | 입력 | `bool` | 텍스트를 입력하기 전에 대상 요소를 먼저 클릭할지 여부. |
 | 값 <small>`Value`</small> | 입력 | `string` | 대상 요소에 입력할 텍스트. |
-| 보호된 입력값 <small>`SecureValue`</small> | 입력 | `SecureString` | 보호된 값(SecureString). 자격 증명 가져오기(GetCredential)의 SecurePassword 출력을 연결하면 값이 워크플로 파일·로그에 남지 않습니다. 있으면 평문 인자보다 우선합니다. |
+| 보호된 입력값 <small>`SecureValue`</small> | 입력 | `SecureString` | 보호된 값(SecureString). 속성 창의 열쇠 버튼으로 자격 증명을 고르면 그 비밀번호를 입력합니다 — 값이 워크플로 파일·로그·화면에 남지 않습니다. 자격 증명 가져오기(GetCredential)의 SecurePassword 출력(변수)을 연결해도 됩니다. 있으면 평문 인자보다 우선합니다. |
 | 작업 전 타임아웃 <small>`BeforeTimeout`</small> | 입력 | `int` | 동작을 시작하기 전에 대기할 시간(밀리초). |
 | 작업 후 타임아웃 <small>`AfterTimeout`</small> | 입력 | `int` | 동작을 마친 뒤 추가로 대기할 시간(밀리초). |
 | 브라우저 타입 <small>`BrowserType`</small> | 입력 | `string` | 동작에 사용할 브라우저 종류(Chrome, Edge 등). |

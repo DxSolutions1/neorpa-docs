@@ -105,7 +105,7 @@
 |------|------|------|------|
 | 사각 영역 <small>`RectArea`</small> | 입력 | `string` | 대상 요소의 화면상 사각 영역(경계 좌표). |
 | 값 <small>`Value`</small> | 입력 | `string` | 대상 요소에 입력할 텍스트. |
-| 보호된 입력값 <small>`SecureValue`</small> | 입력 | `SecureString` | 보호된 값(SecureString). 자격 증명 가져오기(GetCredential)의 SecurePassword 출력을 연결하면 값이 워크플로 파일·로그에 남지 않습니다. 있으면 평문 인자보다 우선합니다. |
+| 보호된 입력값 <small>`SecureValue`</small> | 입력 | `SecureString` | 보호된 값(SecureString). 속성 창의 열쇠 버튼으로 자격 증명을 고르면 그 비밀번호를 입력합니다 — 값이 워크플로 파일·로그·화면에 남지 않습니다. 자격 증명 가져오기(GetCredential)의 SecurePassword 출력(변수)을 연결해도 됩니다. 있으면 평문 인자보다 우선합니다. |
 | 필드 비우기 <small>`EmptyField`</small> | 입력 | `bool` | 입력하기 전에 대상 필드를 비울지 여부. |
 | 타이핑 전 클릭 <small>`ClickBeforeTyping`</small> | 입력 | `bool` | 텍스트를 입력하기 전에 대상 요소를 먼저 클릭할지 여부. |
 | 위치 <small>`ClickPosition`</small> | 입력 | `string` | 요소 영역 안에서 클릭 기준으로 삼을 지점(가운데, 좌상단 등). |

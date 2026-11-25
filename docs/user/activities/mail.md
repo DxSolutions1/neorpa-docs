@@ -17,7 +17,7 @@ SMTP로 메일을 전송합니다(첨부 지원).
 | 속성 | 방향 | 타입 | 설명 |
 |------|------|------|------|
 | 암호 <small>`logonPassword`</small> | 입력 | `string` | 메일 발송에 사용할 로그인 암호. |
-| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 자격 증명 가져오기(GetCredential)의 SecurePassword 출력을 연결합니다. 있으면 평문 비밀번호보다 우선합니다. |
+| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 속성 창의 열쇠 버튼으로 자격 증명을 고르면 워크플로 파일에는 자격 증명 이름만 남습니다. 자격 증명 가져오기(GetCredential)의 SecurePassword 출력(변수)을 연결해도 됩니다. 있으면 평문 비밀번호보다 우선합니다. |
 | 이메일 <small>`logonEmail`</small> | 입력 | `string` | 메일 발송에 사용할 로그인 계정. |
 | 발신 이메일 <small>`senderEmail`</small> | 입력 | `string` | 보내는 사람의 메일 주소. |
 | 발신 이름 <small>`senderName`</small> | 입력 | `string` | 보내는 사람의 표시 이름. |
@@ -45,7 +45,7 @@ POP3 서버에 접속해 메일을 수신하고 메시지 목록으로 가져옵
 | 타임아웃(ms) <small>`TimeoutMS`</small> | 입력 | `int` | 서버 연결을 기다릴 최대 시간(밀리초). |
 | 이메일 <small>`Email`</small> | 입력 | `string` | 메일 로그인 계정(메일 주소). |
 | 암호 <small>`Password`</small> | 입력 | `string` | 접근에 사용할 암호(파일 또는 메일 계정). |
-| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 자격 증명 가져오기(GetCredential)의 SecurePassword 출력을 연결합니다. 있으면 평문 비밀번호보다 우선합니다. |
+| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 속성 창의 열쇠 버튼으로 자격 증명을 고르면 워크플로 파일에는 자격 증명 이름만 남습니다. 자격 증명 가져오기(GetCredential)의 SecurePassword 출력(변수)을 연결해도 됩니다. 있으면 평문 비밀번호보다 우선합니다. |
 | 메시지 삭제 <small>`DeleteMessages`</small> | 입력 | `bool` | 가져온 뒤 서버에서 메일을 삭제할지 여부. |
 | 보안 연결 <small>`SecureConnection`</small> | 입력 | `string` | 메일 서버 보안 연결 방식(SSL/TLS 등). |
 | 상위 메일 개수 <small>`Top`</small> | 입력 | `int` | 가져올 최대 메일 개수. |

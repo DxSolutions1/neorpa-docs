@@ -53,7 +53,7 @@
 | 키 간 지연 <small>`DelayBetweenKeys`</small> | 입력 | `int` | 키 입력 사이에 둘 지연 시간(밀리초). |
 | 비우기 방식 <small>`ClearMethod`</small> | 입력 | `string` | 입력 전에 기존 필드 내용을 지우는 방식. |
 | 값 <small>`Value`</small> | 입력 | `string` | 대상 요소에 입력할 텍스트. |
-| 보호된 입력값 <small>`SecureValue`</small> | 입력 | `SecureString` | 보호된 값(SecureString). 자격 증명 가져오기(GetCredential)의 SecurePassword 출력을 연결하면 값이 워크플로 파일·로그에 남지 않습니다. 있으면 평문 인자보다 우선합니다. |
+| 보호된 입력값 <small>`SecureValue`</small> | 입력 | `SecureString` | 보호된 값(SecureString). 속성 창의 열쇠 버튼으로 자격 증명을 고르면 그 비밀번호를 입력합니다 — 값이 워크플로 파일·로그·화면에 남지 않습니다. 자격 증명 가져오기(GetCredential)의 SecurePassword 출력(변수)을 연결해도 됩니다. 있으면 평문 인자보다 우선합니다. |
 | 셀렉터 <small>`Selector`</small> | 입력 | `string` | 동작 대상 UI 요소를 식별하는 셀렉터. |
 
 ## 클릭  <small>`Click`</small>
@@ -460,7 +460,7 @@ PowerShell 명령이나 스크립트를 실행하고 결과를 가져옵니다.
 | 폴더 이름 포함 <small>`IncludeBaseFolder`</small> | 설정 | `bool` | 폴더를 압축할 때 그 폴더 이름째 넣을지 여부(기본 true — Windows 탐색기의 압축과 같습니다). 끄면 폴더 안의 파일·하위 폴더만 넣습니다. |
 | 압축 수준 <small>`Compression`</small> | 설정 | `ZipCompression` | 압축 수준. **보통**(기본) · **빠르게**(덜 줄이는 대신 빠름) · **압축 안 함**(묶기만 — 이미 압축된 그림·xlsx·pdf 를 묶을 때). |
 | 암호 <small>`Password`</small> | 입력 | `string` | 압축 파일 암호(평문). 직접 적으면 워크플로 파일에 그대로 저장되어 경고가 표시됩니다 — **보호된 비밀번호**를 쓰세요. 비우면 잠그지 않습니다. |
-| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 자격 증명 가져오기(GetCredential)의 SecurePassword 출력을 연결합니다. 있으면 평문 비밀번호보다 우선합니다. |
+| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 속성 창의 열쇠 버튼으로 자격 증명을 고르면 워크플로 파일에는 자격 증명 이름만 남습니다. 자격 증명 가져오기(GetCredential)의 SecurePassword 출력(변수)을 연결해도 됩니다. 있으면 평문 비밀번호보다 우선합니다. |
 | 암호화 방식 <small>`Encryption`</small> | 설정 | `ZipEncryption` | 암호를 줬을 때 잠그는 방식. **AES-256**(기본, 안전 — 반디집·알집·7-Zip 으로 엽니다) · **ZipCrypto**(Windows 탐색기로도 열리지만 쉽게 풀리는 예전 방식). 암호가 없으면 쓰이지 않습니다. |
 | 결과 <small>`Result`</small> | 출력 | `string` | 만든 압축 파일의 전체 경로(출력). 메일 첨부 등 다음 액티비티에 그대로 넘길 수 있습니다. |
 | 개수 <small>`Count`</small> | 출력 | `int` | 넣은 파일 수(출력). 빈 폴더는 세지 않습니다. |
@@ -500,7 +500,7 @@ zip 을 폴더에 풉니다. 풀기 전에 안의 항목을 모두 검사해서,
 | 덮어쓰기 <small>`Overwrite`</small> | 설정 | `bool` | 풀 자리에 같은 이름의 파일이 있으면 바꿔 쓸지 여부(기본 true). 끄면 하나라도 있을 때 아무것도 풀지 않고 오류로 멈춥니다. |
 | 이름 인코딩 <small>`NameEncoding`</small> | 입력 | `string` | 풀린 파일 이름이 깨질 때만 씁니다. UTF-8 표시가 없는 이름을 읽을 인코딩 이름이나 코드 페이지 번호(예: `euc-kr`, `shift_jis`, `949`). 비우면 자동입니다 — 아래 [한글 파일 이름](#zip-names) 참고. |
 | 암호 <small>`Password`</small> | 입력 | `string` | 압축 파일 암호(평문). 직접 적으면 워크플로 파일에 그대로 저장되어 경고가 표시됩니다 — **보호된 비밀번호**를 쓰세요. 암호가 걸린 압축 파일인데 비우면 오류로 멈춥니다. |
-| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 자격 증명 가져오기(GetCredential)의 SecurePassword 출력을 연결합니다. 있으면 평문 비밀번호보다 우선합니다. |
+| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 속성 창의 열쇠 버튼으로 자격 증명을 고르면 워크플로 파일에는 자격 증명 이름만 남습니다. 자격 증명 가져오기(GetCredential)의 SecurePassword 출력(변수)을 연결해도 됩니다. 있으면 평문 비밀번호보다 우선합니다. |
 | 결과 <small>`Result`</small> | 출력 | `string[]` | 푼 파일의 전체 경로 목록(출력, 문자열 배열 — 압축 파일 안의 순서). `반복(ForEach)` 에 연결해 파일을 하나씩 처리할 수 있습니다. |
 | 개수 <small>`Count`</small> | 출력 | `int` | 푼 파일 수(출력). |
 | 푼 폴더 <small>`OutputFolder`</small> | 출력 | `string` | 실제로 푼 폴더의 전체 경로(출력). 풀 폴더를 비웠을 때 어디에 풀렸는지 알 수 있습니다. |

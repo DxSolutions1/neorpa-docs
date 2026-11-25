@@ -92,7 +92,7 @@ PDF 의 텍스트를 읽어 변수에 담습니다. 글자가 든 페이지는 �
 | OCR <small>`OcrMode`</small> | 설정 | `PdfOcrMode` | 글자 인식(OCR)을 언제 쓸지. **스캔 쪽만**(기본 — 글자가 없는 페이지만) · **안 함** · **모든 쪽** — [스캔본과 OCR](#pdf-ocr). |
 | OCR 해상도 <small>`OcrDpi`</small> | 입력 | `int` | OCR 할 때 페이지를 그리는 해상도(DPI). 0 이거나 비우면 200. 작은 글자가 틀리게 읽히면 300. |
 | 암호 <small>`Password`</small> | 입력 | `string` | PDF 여는 암호(평문). 직접 적으면 워크플로 파일에 그대로 저장되어 경고가 표시됩니다 — **보호된 비밀번호**를 쓰세요. |
-| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 자격 증명 가져오기(GetCredential)의 SecurePassword 출력을 연결합니다. 있으면 평문 비밀번호보다 우선합니다. |
+| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 속성 창의 열쇠 버튼으로 자격 증명을 고르면 워크플로 파일에는 자격 증명 이름만 남습니다. 자격 증명 가져오기(GetCredential)의 SecurePassword 출력(변수)을 연결해도 됩니다. 있으면 평문 비밀번호보다 우선합니다. |
 | 결과 <small>`Result`</small> | 출력 | `string` | 읽은 텍스트(출력). 고른 페이지를 줄바꿈으로 이은 것입니다. |
 | 페이지별 텍스트 <small>`PageTexts`</small> | 출력 | `string[]` | 페이지마다의 텍스트(출력, 문자열 배열 — 고른 페이지 순서). `반복(ForEach)` 으로 페이지마다 처리할 때 씁니다. |
 | 페이지 수 <small>`PageCount`</small> | 출력 | `int` | 문서의 전체 페이지 수(출력). 읽은 페이지 수가 아니라 문서 전체입니다. |
@@ -108,7 +108,7 @@ PDF 의 페이지 수를 돌려줍니다. 페이지마다 나눠 처리하는 �
 |------|------|------|------|
 | 파일 경로 <small>`FilePath`</small> | 입력 | `string` | 페이지 수를 셀 PDF. 상대 경로는 프로젝트 폴더 기준입니다. |
 | 암호 <small>`Password`</small> | 입력 | `string` | PDF 여는 암호(평문). 직접 적으면 경고가 표시됩니다 — **보호된 비밀번호**를 쓰세요. |
-| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 자격 증명 가져오기(GetCredential)의 SecurePassword 출력을 연결합니다. 있으면 평문 비밀번호보다 우선합니다. |
+| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 속성 창의 열쇠 버튼으로 자격 증명을 고르면 워크플로 파일에는 자격 증명 이름만 남습니다. 자격 증명 가져오기(GetCredential)의 SecurePassword 출력(변수)을 연결해도 됩니다. 있으면 평문 비밀번호보다 우선합니다. |
 | 결과 <small>`Result`</small> | 출력 | `int` | 페이지 수(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
 
@@ -125,7 +125,7 @@ PDF 에서 고른 페이지만으로 새 PDF 를 만듭니다. 페이지는 적�
 | 저장할 파일 <small>`OutputPath`</small> | 입력 | `string` | 저장할 PDF(.pdf). 없는 폴더는 만듭니다. 원본과 같은 파일로는 저장할 수 없습니다. |
 | 덮어쓰기 <small>`Overwrite`</small> | 설정 | `bool` | 같은 이름의 파일이 있으면 바꿔 쓸지 여부(기본 true). 끄면 이미 있을 때 오류로 멈춥니다. |
 | 암호 <small>`Password`</small> | 입력 | `string` | 원본 PDF 여는 암호(평문). 만든 PDF 에는 암호가 걸리지 않습니다 — [암호가 걸린 PDF](#pdf-password). |
-| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 자격 증명 가져오기(GetCredential)의 SecurePassword 출력을 연결합니다. 있으면 평문 비밀번호보다 우선합니다. |
+| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 속성 창의 열쇠 버튼으로 자격 증명을 고르면 워크플로 파일에는 자격 증명 이름만 남습니다. 자격 증명 가져오기(GetCredential)의 SecurePassword 출력(변수)을 연결해도 됩니다. 있으면 평문 비밀번호보다 우선합니다. |
 | 결과 <small>`Result`</small> | 출력 | `string` | 저장한 PDF 의 전체 경로(출력). |
 | 페이지 수 <small>`PageCount`</small> | 출력 | `int` | 저장한 PDF 의 페이지 수(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
@@ -153,7 +153,7 @@ PDF 여러 개를 하나로 잇습니다. 합칠 것은 PDF 파일, 폴더(그 �
 | 저장할 파일 <small>`OutputPath`</small> | 입력 | `string` | 저장할 PDF(.pdf). 없는 폴더는 만듭니다. 합칠 폴더 안에 저장해도 됩니다(자기 자신은 다시 넣지 않습니다). |
 | 덮어쓰기 <small>`Overwrite`</small> | 설정 | `bool` | 같은 이름의 파일이 있으면 바꿔 쓸지 여부(기본 true). |
 | 암호 <small>`Password`</small> | 입력 | `string` | 암호가 걸린 원본을 여는 암호(평문, 모든 원본에 같은 암호). 만든 PDF 에는 암호가 걸리지 않습니다. |
-| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 자격 증명 가져오기(GetCredential)의 SecurePassword 출력을 연결합니다. 있으면 평문 비밀번호보다 우선합니다. |
+| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 속성 창의 열쇠 버튼으로 자격 증명을 고르면 워크플로 파일에는 자격 증명 이름만 남습니다. 자격 증명 가져오기(GetCredential)의 SecurePassword 출력(변수)을 연결해도 됩니다. 있으면 평문 비밀번호보다 우선합니다. |
 | 결과 <small>`Result`</small> | 출력 | `string` | 저장한 PDF 의 전체 경로(출력). |
 | 페이지 수 <small>`PageCount`</small> | 출력 | `int` | 저장한 PDF 의 전체 페이지 수(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
@@ -172,7 +172,7 @@ PDF 페이지를 그림 파일로 저장합니다. 형식은 저장할 이름의
 | 해상도 (DPI) <small>`Dpi`</small> | 입력 | `int` | 해상도(DPI). 0 이거나 비우면 150. 화면에서 보는 용도면 96~150, 인쇄·글자 인식 용도면 200~300. 36~600 사이로 맞춥니다. |
 | 덮어쓰기 <small>`Overwrite`</small> | 설정 | `bool` | 같은 이름의 파일이 있으면 바꿔 쓸지 여부(기본 true). 끄면 하나라도 있을 때 아무것도 만들지 않고 오류로 멈춥니다. |
 | 암호 <small>`Password`</small> | 입력 | `string` | PDF 여는 암호(평문). 직접 적으면 경고가 표시됩니다 — **보호된 비밀번호**를 쓰세요. |
-| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 자격 증명 가져오기(GetCredential)의 SecurePassword 출력을 연결합니다. 있으면 평문 비밀번호보다 우선합니다. |
+| 보호된 비밀번호 <small>`SecurePassword`</small> | 입력 | `SecureString` | 보호된 비밀번호(SecureString). 속성 창의 열쇠 버튼으로 자격 증명을 고르면 워크플로 파일에는 자격 증명 이름만 남습니다. 자격 증명 가져오기(GetCredential)의 SecurePassword 출력(변수)을 연결해도 됩니다. 있으면 평문 비밀번호보다 우선합니다. |
 | 결과 <small>`Result`</small> | 출력 | `string[]` | 저장한 이미지 파일의 전체 경로 목록(출력, 문자열 배열 — 페이지 순서). |
 | 개수 <small>`Count`</small> | 출력 | `int` | 저장한 이미지 수(출력). |
 | 오류 무시 <small>`ContinueOnError`</small> | 입력 | `bool` | 이 액티비티에서 오류가 발생해도 워크플로를 멈추지 않고 계속 진행할지 여부(true/false). |
